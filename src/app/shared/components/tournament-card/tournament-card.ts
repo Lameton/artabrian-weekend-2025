@@ -14,16 +14,28 @@ export class TournamentCard {
   @Input() gameTheme: 'mtg' | 'swu' = 'mtg';
   @Output() register = new EventEmitter<Tournament>();
 
-  onRegister() {
+  onRegister(): void {
     this.register.emit(this.tournament);
   }
-  getDayName() {
-    /* ... */
+
+  getDayName(): string {
+    const days: Record<string, string> = {
+      friday: 'Viernes',
+      saturday: 'Sábado',
+      sunday: 'Domingo',
+    };
+    return days[this.tournament.day] || '';
   }
-  getThemeClasses() {
-    /* ... */
+
+  getThemeClasses(): string {
+    return this.gameTheme === 'mtg'
+      ? 'bg-gradient-to-br from-yellow-400 to-yellow-600 text-black'
+      : 'bg-gradient-to-br from-gray-900 to-black text-white';
   }
-  getButtonClasses() {
-    /* ... */
+
+  getButtonClasses(): string {
+    return this.gameTheme === 'mtg'
+      ? 'bg-black text-yellow-400 hover:bg-gray-800'
+      : 'bg-yellow-400 text-black hover:bg-yellow-500';
   }
 }

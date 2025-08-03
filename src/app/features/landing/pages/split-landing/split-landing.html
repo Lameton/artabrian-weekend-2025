@@ -1,0 +1,74 @@
+<!-- src/app/features/landing/pages/split-landing/split-landing.html -->
+<div class="w-screen h-screen flex font-sans select-none">
+  <!-- Panel MTG -->
+  <a
+    routerLink="/mtg"
+    class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[1.25] bg-gradient-to-br from-primary-light via-primary to-primary-dark relative overflow-hidden group min-w-0"
+    tabindex="0"
+    role="link"
+  >
+    <div class="z-10 text-center">
+      <img
+        src="assets/images/mtg/mtg-logo.png"
+        alt="MTG logo"
+        class="mx-auto mb-8 h-24 w-auto drop-shadow-lg"
+      />
+      <h1
+        class="text-hero font-black tracking-wide text-black drop-shadow-xl mb-4 transition group-hover:scale-105"
+      >
+        Magic: The Gathering
+      </h1>
+      <p class="text-h3 text-black/80 mb-6">
+        Torneos, premios, cartas y comunidad.
+      </p>
+      <span
+        class="px-8 py-4 mt-4 font-bold uppercase rounded-full bg-black text-primary-light shadow-lg hover:bg-gray-800 transition inline-block cursor-pointer"
+      >
+        Entrar
+      </span>
+    </div>
+    <!-- Elementos decorativos -->
+    <div
+      class="absolute left-0 bottom-0 w-1/2 h-1/2 bg-primary-dark opacity-20 rounded-tr-full pointer-events-none"
+    ></div>
+    <div
+      class="absolute -top-8 -right-8 w-52 h-52 bg-primary-light opacity-15 rounded-full pointer-events-none"
+    ></div>
+  </a>
+
+  <!-- Panel SWU -->
+  <a
+    routerLink="/swu"
+    class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[1.25] bg-gradient-to-br from-swu-dark via-swu to-swu-light relative overflow-hidden group min-w-0"
+    tabindex="0"
+    role="link"
+  >
+    <div class="z-10 text-center">
+      <img
+        src="assets/images/swu/swu-logo.png"
+        alt="SWU logo"
+        class="mx-auto mb-8 h-24 w-auto drop-shadow-lg"
+      />
+      <h1
+        class="text-hero font-black tracking-wide text-swu-dark drop-shadow-xl mb-4 transition group-hover:scale-105"
+      >
+        Star Wars Unlimited
+      </h1>
+      <p class="text-h3 text-swu-light/90 mb-6">
+        Eventos oficiales en una galaxia muy, muy lejana.
+      </p>
+      <span
+        class="px-8 py-4 mt-4 font-bold uppercase rounded-full bg-swu text-black shadow-lg hover:bg-swu-dark transition inline-block cursor-pointer"
+      >
+        Entrar
+      </span>
+    </div>
+    <!-- Elementos decorativos -->
+    <div
+      class="absolute right-0 top-0 w-1/2 h-1/2 bg-swu opacity-10 rounded-bl-full pointer-events-none"
+    ></div>
+    <div
+      class="absolute -bottom-8 -left-8 w-52 h-52 bg-black opacity-10 rounded-full pointer-events-none"
+    ></div>
+  </a>
+</div>

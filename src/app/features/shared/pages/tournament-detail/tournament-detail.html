@@ -1,0 +1,40 @@
+<div *ngIf="tournament; else notFound" class="max-w-3xl mx-auto p-6">
+  <!-- Nombre del torneo -->
+  <h1 class="text-4xl font-bold mb-4">{{ tournament.name }}</h1>
+
+  <!-- Día y hora -->
+  <p class="text-gray-600 mb-2">
+    {{ tournament.day | titlecase }} · {{ tournament.time }}
+  </p>
+
+  <!-- Precio -->
+  <p class="text-2xl font-semibold mb-4">{{ tournament.price }}€</p>
+
+  <!-- Premios -->
+  <section class="mb-6">
+    <h2 class="text-xl font-semibold mb-2">Premios</h2>
+    <ul class="list-disc pl-5">
+      <li *ngFor="let prize of tournament.prizes">{{ prize }}</li>
+    </ul>
+  </section>
+
+  <!-- Detalles opcionales -->
+  <section *ngIf="tournament.maxPlayers" class="mb-6">
+    <h2 class="text-xl font-semibold mb-2">Jugadores máximos</h2>
+    <p>{{ tournament.maxPlayers }}</p>
+  </section>
+
+  <!-- Botón Inscribirse -->
+  <button
+    class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+    (click)="onRegister()"
+  >
+    Inscribirse
+  </button>
+</div>
+
+<ng-template #notFound>
+  <div class="text-center py-16">
+    <p class="text-xl text-red-600">Torneo no encontrado.</p>
+  </div>
+</ng-template>
