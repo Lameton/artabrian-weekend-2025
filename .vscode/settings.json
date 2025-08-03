@@ -1,0 +1,19 @@
+{
+  "emmet.includeLanguages": {
+    "typescript": "html"
+  },
+  "files.associations": {
+    "*.html": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
+  "scss.validate": false,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "html",
+    "html": "html"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
