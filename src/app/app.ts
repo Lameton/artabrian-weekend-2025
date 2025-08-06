@@ -1,38 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NgFor, JsonPipe } from '@angular/common';
-import { EventDataService } from './core/services/event-data.service';
-import { TournamentCard } from './shared/components/tournament-card/tournament-card';
-import { Tournament } from './shared/models';
-
+import { Component } from '@angular/core'; // Importa la función principal para definir un componente Angular
+import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet para habilitar navegación enrutada
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet, // ← Importar RouterOutlet para <router-outlet>
-    NgFor,
-    JsonPipe,
-    TournamentCard,
-  ],
-  templateUrl: './app.html',
-  styleUrl: './app.scss',
+  selector: 'app-root', // Nombre del selector usado en index.html (<app-root>)
+  standalone: true, // Indica que este componente no necesita un NgModule para funcionar
+  imports: [RouterOutlet], // Importa RouterOutlet para poder mostrar las rutas hijas
+  template: `
+    <!-- Aquí irán los layouts, menús globales, rutas, etc. // Actualmente vacío -->
+    <!-- El RouterOutlet es el espacio donde se carga la vista según la ruta actual -->
+    <router-outlet></router-outlet>
+  `,
 })
 export class App {
-  title = 'artabrian-weekend-2025';
-
-  private eventService = inject(EventDataService);
-
-  eventInfo = this.eventService.getEventInfo();
-  allGames = this.eventService.getAllGames();
-
-  mtgTournaments = this.eventService.getTournamentsByGame('mtg').slice(0, 2);
-  swuTournaments = this.eventService.getTournamentsByGame('swu').slice(0, 2);
-
-  onTournamentRegister(tournament: Tournament) {
-    if (tournament.registrationUrl) {
-      window.open(tournament.registrationUrl, '_blank');
-    } else {
-      alert(`Inscripción para ${tournament.name} próximamente disponible`);
-    }
-  }
+  // Aquí podrías definir lógica global, como inyección de servicios globales,
+  // suscripción a cambios de idioma, modo oscuro, loading bar, etc.
 }
