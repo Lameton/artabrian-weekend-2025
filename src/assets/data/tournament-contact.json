@@ -1,0 +1,13 @@
+{
+  "organizers": ["Asociación Artabrian", "Comité MTG", "Liga SWU Galicia"],
+  "sponsors": ["Cartas & Dados", "GameMaster", "Playmat Co."],
+  "contact": {
+    "email": "info@artabriannights.com",
+    "phone": "+34 678 901 234",
+    "website": "https://www.artabriannights.com"
+  },
+  "social": {
+    "instagram": "https://instagram.com/artabriannights",
+    "x": "https://x.com/artabriannights"
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "MTG Draft Express",
+    "day": "Viernes",
+    "hour": "17:00",
+    "prize": 100
+  },
+  {
+    "name": "SWU Rondas Libres",
+    "day": "Sábado",
+    "hour": "16:00",
+    "prize": 50
+  }
+]
