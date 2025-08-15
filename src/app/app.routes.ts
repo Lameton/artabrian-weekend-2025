@@ -1,11 +1,41 @@
 import { Routes } from '@angular/router';
-import { App } from './app';
-import { MtgMain } from './features/mtg/pages/mtg-main/mtg-main';
-import { SwuMain } from './features/swu/pages/swu-main/swu-main';
+// Importa el tipo Routes, necesario para definir el array de rutas principal de Angular.
 
 export const routes: Routes = [
-  { path: '', component: App },
-  { path: 'mtg', component: MtgMain },
-  { path: 'swu', component: SwuMain },
-  { path: '**', redirectTo: '' },
+  // ========================
+  // Ruta Home (Raíz "/")
+  // ========================
+  {
+    path: '', // URL raíz ("/")
+    title: 'Inicio',
+    loadComponent: () =>
+      import('./core/landing/split-landing/split-landing').then(
+        (m) => m.SplitLanding
+      ),
+    // Lazy-load del componente App (componente raíz).
+    // Si quieres una landing principal aquí, debe ser el componente que sirva de página de inicio.
+    // Es habitual poner "App" aquí cuando no tienes una landing específica.
+  },
+  {
+    path: 'HeroSection',
+    title: 'hero-section',
+    loadComponent: () =>
+      import('./features/home/hero-section/hero-section').then(
+        (m) => m.HeroSection
+      ),
+  },
+
+  {
+    path: 'Tournaments',
+    title: 'tournaments',
+    loadComponent: () =>
+      import('./features/home/tournaments/tournaments').then(
+        (m) => m.Tournaments
+      ),
+  },
+
+  {
+    path: '**',
+    redirectTo: '', // Redirige a la Home si la URL no coincide con ninguna ruta
+  },
 ];
