@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { TournamentSplit } from '../models/tournament-split.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TournamentSplitService {
   private jsonUrl = 'assets/data/tournament-split.json';
