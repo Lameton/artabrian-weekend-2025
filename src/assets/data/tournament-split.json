@@ -1,12 +1,12 @@
 [
   {
     "name": "Magic: The Gathering",
-    "slogan": "El plano está en guerra",
-    "imagePath": "/assets/images/mtg-split.jpg"
+    "slogan": "Permitimos mulligans agresivos",
+    "imagePath": "assets/images/mtg/mtg-background.jpg"
   },
   {
-    "name": "SWU",
-    "slogan": "Una galaxia dividida",
-    "imagePath": "/assets/images/swu-split.jpg"
+    "name": "Star Wars Unlimited",
+    "slogan": "Eventos oficiales en una galaxia muy muy lejana",
+    "imagePath": "assets/images/swu/swu-background.jpg"
   }
 ]

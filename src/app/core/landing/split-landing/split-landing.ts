@@ -1,38 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { TournamentSplitService } from '../../../services/tournament-split.service';  // Ajusta ruta según estructura
+import { Component, computed, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { TournamentSplitService } from '../../../services/tournament-split.service';
+import { TournamentSplit } from '../../../models/tournament-split.model';
 
 @Component({
   selector: 'split-landing',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './split-landing.html',
-  styleUrls: ['./split-landing.scss'], // opcional
+  styleUrls: ['./split-landing.scss'],
 })
-export class SplitLanding implements OnInit {
+export class SplitLanding {
+  private splitService = inject(TournamentSplitService);
+
   hoveredPanel: 'mtg' | 'swu' | null = null;
 
-  tournamentName: string | null = null; // Para guardar el nombre del torneo recibido
+  // Convertimos el observable a signal reactiva
+  splits = toSignal(this.splitService.getSplits(), { initialValue: [] });
 
-  constructor(private splitService: TournamentSplitService) {}
+  // Extra: puedes derivar el nombre del torneo directamente de los splits
+  tournamentName = computed(() => this.splits()[0]?.name ?? null);
 
-  ngOnInit(): void {
-    this.splitService.getSplits().subscribe({
-      next: (data) => {
-        console.log('Datos torneo en SplitLanding:', data);
-        this.tournamentName = data.length > 0 ? data[0].name : null;
-      },
-      error: (err) => {
-        console.error('Error al cargar torneo:', err);
-      }
-    });
-  }
-  
-  // Método para registrar el panel que recibe el hover
   onHover(panel: 'mtg' | 'swu') {
     this.hoveredPanel = panel;
   }
 
-  // Método para limpiar el estado cuando se quita el hover
   onLeave() {
     this.hoveredPanel = null;
   }

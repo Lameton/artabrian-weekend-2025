@@ -4,7 +4,7 @@
     <img
       src="assets/logos/artabrian-weekend-2025.svg"
       alt="Artabrian weekend logo"
-      class="w-48 h-auto"
+      class="w-60 h-auto"
     />
   </div>
   <!-- Fondo spliteado -->
@@ -23,9 +23,10 @@
       class="aspect-[16/9] max-w-[90vw] max-h-[80vh] w-full bg-transparent rounded-md overflow-hidden shadow-lg flex"
     >
       <!-- Panel MTG (izquierda) -->
+      @for (split of splits(); track split) {
       <a
-        href="hero-section.html"
-        class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[5] relative overflow-hidden roup min-w-0 bg-[url(./assets/images/mtg/mtg-background.jpg)] bg-cover bg-center grayscale hover:grayscale-0 p-8"
+        [style.--image-url]="'url(' + split.imagePath + ')'"
+        class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[5] relative overflow-hidden group min-w-0 bg-[image:var(--image-url)] bg-cover bg-center grayscale hover:grayscale-0 p-8"
         tabindex="0"
         role="link"
       >
@@ -33,12 +34,12 @@
           <h1
             class="md:text-5xl sm:text-2xl font-extrabold tracking-wide text-white mb-4 text-shadow-xs"
           >
-            {{tournamentName}}
+            {{ split.name }}
           </h1>
           <p
             class="text-lg md:text-xl font-bold text-white/90 mb-6 text-shadow-xs"
           >
-            Permitimos mullingans agresivos
+            {{ split.slogan }}
           </p>
           <button>
             <span
@@ -49,34 +50,7 @@
           </button>
         </div>
       </a>
-
-      <!-- Panel SWU (derecha) -->
-      <a
-        href="/swu"
-        class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[5] bg-[url(./assets/images/swu/swu-background.jpg)] bg-cover bg-center grayscale hover:grayscale-0 p-8"
-        tabindex="0"
-        role="link"
-      >
-        <div class="text-center max-w-xs md:max-w-md w-full">
-          <h1
-            class="text-3xl md:text-5xl font-extrabold tracking-wide text-white mb-4 text-shadow-lg"
-          >
-            Star Wars Unlimited
-          </h1>
-          <p
-            class="text-lg md:text-xl font-semibold text-white/90 mb-6 text-shadow-lg"
-          >
-            Eventos oficiales en una galaxia muy lejana
-          </p>
-          <button>
-            <span
-              class="inline-block px-8 py-2 text-lg font-bold uppercase rounded bg-red-800 text-white shadow-lg hover:bg-red-900 transition cursor-pointer"
-            >
-              Entrar
-            </span>
-          </button>
-        </div>
-      </a>
+      }
     </div>
   </div>
 </div>
