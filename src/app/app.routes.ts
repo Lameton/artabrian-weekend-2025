@@ -17,6 +17,24 @@ export const routes: Routes = [
     // Es habitual poner "App" aquí cuando no tienes una landing específica.
   },
   {
+    path: 'HeroSection',
+    title: 'hero-section',
+    loadComponent: () =>
+      import('./features/home/hero-section/hero-section').then(
+        (m) => m.HeroSection
+      ),
+  },
+
+  {
+    path: 'Tournaments',
+    title: 'tournaments',
+    loadComponent: () =>
+      import('./features/home/tournaments/tournaments').then(
+        (m) => m.Tournaments
+      ),
+  },
+
+  {
     path: '**',
     redirectTo: '', // Redirige a la Home si la URL no coincide con ninguna ruta
   },

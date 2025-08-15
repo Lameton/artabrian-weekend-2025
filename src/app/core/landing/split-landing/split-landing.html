@@ -1,57 +1,82 @@
-<div class="w-screen h-screen flex font-sans bg-neutral-100 select-none">
-  <!-- Panel MTG -->
-  <a
-    class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[4] relative overflow-hidden group min-w-0 bg-[url(./assets/images/mtg/mtg-sephirot-background.png)] bg-cover bg-center blur-[1px] hover:blur-[0px]"
-    tabindex="0"
-    role="link"
-  >
+<div class="w-screen h-screen relative select-none font-sans">
+  <!-- Logotipo Artabrian Weekend-->
+  <div class="absolute z-20 flex items-center justify-center w-full h-25">
+    <img
+      src="assets/logos/artabrian-weekend-2025.svg"
+      alt="Artabrian weekend logo"
+      class="w-48 h-auto"
+    />
+  </div>
+  <!-- Fondo spliteado -->
+  <div class="absolute inset-0 flex">
     <div
-      class="absolute inset-0 bg-yellow-400 opacity-50 pointer-events-none"
+      class="flex-1 bg-[url(./assets/images/noise/bg-noise-black.jpg)] bg-cover bg-center"
     ></div>
-    <div class="z-10 text-center">
-      <h1
-        class="md:text-4xl sm:text-2xl font-extrabold tracking-wide text-black drop-shadow-xl mb-4 transition group-hover:scale-105 font-sans"
-      >
-        Magic: The Gathering
-      </h1>
-      <p
-        class="text-3xl md:text-2xl font-bold text-black/90 drop-shadow-xl mb-5 font-sans"
-      >
-        Tu formato competitivo te espera.
-      </p>
-      <span
-        routerLink="/mtg"
-        class="px-8 py-4 mt-4 text-lg font-bold uppercase rounded bg-yellow-400 text-black shadow-lg hover:bg-yellow-600 hover:text-black transition inline-block cursor-pointer"
-      >
-        Entrar
-      </span>
-    </div>
-  </a>
+    <div
+      class="flex-1 bg-[url(./assets/images/noise/bg-noise-white.jpg)] bg-cover bg-center"
+    ></div>
+  </div>
 
-  <!-- Panel SWU -->
-  <a
-    class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[2.5] relative overflow-hidden group min-w-0 bg-[url(./assets/images/swu/swu-darthvader-background.png)] bg-cover bg-center blur-[1px] hover:blur-[0px]"
-    tabindex="0"
-    role="link"
-  >
+  <!-- Contenedor central con proporción 16:9 y contenido centrado -->
+  <div class="absolute inset-0 flex items-center justify-center z-10 shadow-lg">
     <div
-      class="absolute inset-0 bg-red-400 opacity-50 pointer-events-none"
-    ></div>
-    <div class="z-10 text-center">
-      <h1
-        class="md:text-6xl sm:text-4xl font-extrabold tracking-wide text-white drop-shadow-xl mb-4 transition group-hover:scale-105 font-sans"
+      class="aspect-[16/9] max-w-[90vw] max-h-[80vh] w-full bg-transparent rounded-md overflow-hidden shadow-lg flex"
+    >
+      <!-- Panel MTG (izquierda) -->
+      <a
+        href="hero-section.html"
+        class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[5] relative overflow-hidden roup min-w-0 bg-[url(./assets/images/mtg/mtg-background.jpg)] bg-cover bg-center grayscale hover:grayscale-0 p-8"
+        tabindex="0"
+        role="link"
       >
-        Star Wars Unlimited
-      </h1>
-      <p class="md:text-2xl sm:text-xl font-bold text-white/90 mb-5 font-sans">
-        Eventos oficiales en una galaxia muy lejana.
-      </p>
-      <span
-        routerLink="/swu"
-        class="px-8 py-4 mt-4 text-lg font-bold uppercase rounded bg-red-700 text-white shadow-lg hover:bg-red-900 transition inline-block cursor-pointer"
+        <div class="text-center max-w-xs md:max-w-xs w-full">
+          <h1
+            class="md:text-5xl sm:text-2xl font-extrabold tracking-wide text-white mb-4 text-shadow-xs"
+          >
+            Magic: The Gathering
+          </h1>
+          <p
+            class="text-lg md:text-xl font-bold text-white/90 mb-6 text-shadow-xs"
+          >
+            Permitimos mullingans agresivos
+          </p>
+          <button>
+            <span
+              class="inline-block px-8 py-2 text-lg font-bold uppercase rounded bg-yellow-600 text-white shadow-lg hover:bg-yellow-800 transition cursor-pointer"
+            >
+              Entrar
+            </span>
+          </button>
+        </div>
+      </a>
+
+      <!-- Panel SWU (derecha) -->
+      <a
+        href="/swu"
+        class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[5] bg-[url(./assets/images/swu/swu-background.jpg)] bg-cover bg-center grayscale hover:grayscale-0 p-8"
+        tabindex="0"
+        role="link"
       >
-        Entrar
-      </span>
+        <div class="text-center max-w-xs md:max-w-md w-full">
+          <h1
+            class="text-3xl md:text-5xl font-extrabold tracking-wide text-white mb-4 text-shadow-lg"
+          >
+            Star Wars Unlimited
+          </h1>
+          <p
+            class="text-lg md:text-xl font-semibold text-white/90 mb-6 text-shadow-lg"
+          >
+            Eventos oficiales en una galaxia muy lejana
+          </p>
+          <button>
+            <span
+              class="inline-block px-8 py-2 text-lg font-bold uppercase rounded bg-red-800 text-white shadow-lg hover:bg-red-900 transition cursor-pointer"
+            >
+              Entrar
+            </span>
+          </button>
+        </div>
+      </a>
     </div>
-  </a>
+  </div>
 </div>

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'split-landing',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './split-landing.html',
   styleUrls: ['./split-landing.scss'], // opcional
 })
