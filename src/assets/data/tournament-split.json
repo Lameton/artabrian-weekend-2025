@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Magic: The Gathering",
+    "slogan": "El plano está en guerra",
+    "imagePath": "/assets/images/mtg-split.jpg"
+  },
+  {
+    "name": "SWU",
+    "slogan": "Una galaxia dividida",
+    "imagePath": "/assets/images/swu-split.jpg"
+  }
+]

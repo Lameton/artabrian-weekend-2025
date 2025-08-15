@@ -1,0 +1,14 @@
+[
+  {
+    "name": "MTG",
+    "description": "Magic: The Gathering trae su torneo más competitivo con formatos como Modern, Pioneer y Commander. ¡Prepárate para invocar tus mejores hechizos!",
+    "posterPath": "/assets/images/mtg-poster.jpg",
+    "backgroundPath": "/assets/images/mtg-background.jpg"
+  },
+  {
+    "name": "SWU",
+    "description": "Star Wars Unlimited se abre camino con un torneo épico lleno de estrategia, naves y la Fuerza. ¡No te lo pierdas!",
+    "posterPath": "/assets/images/swu-poster.jpg",
+    "backgroundPath": "/assets/images/swu-background.jpg"
+  }
+]
