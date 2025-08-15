@@ -20,15 +20,16 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -77,11 +78,9 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
-            ],
-            "styles": [
-              "src/styles.scss"
             ]
           }
         }
