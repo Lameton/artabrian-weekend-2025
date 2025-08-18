@@ -1,32 +1,34 @@
 import { Component, computed, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TournamentSplitService } from '../../../services/tournament-split.service';
-import { TournamentSplit } from '../../../models/tournament-split.model';
 
 @Component({
   selector: 'split-landing',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './split-landing.html',
   styleUrls: ['./split-landing.scss'],
 })
 export class SplitLanding {
   private splitService = inject(TournamentSplitService);
+  private router = inject(Router);
 
-  hoveredPanel: 'mtg' | 'swu' | null = null;
+  hoveredPanelIndex: number | null = null;
 
-  // Convertimos el observable a signal reactiva
   splits = toSignal(this.splitService.getSplits(), { initialValue: [] });
 
-  // Extra: puedes derivar el nombre del torneo directamente de los splits
   tournamentName = computed(() => this.splits()[0]?.name ?? null);
 
-  onHover(panel: 'mtg' | 'swu') {
-    this.hoveredPanel = panel;
+  onHover(index: number) {
+    this.hoveredPanelIndex = index;
   }
 
   onLeave() {
-    this.hoveredPanel = null;
+    this.hoveredPanelIndex = null;
+  }
+
+  goToTournament(split: { id: string; name: string /* otros campos */ }) {
+    // Navega a la página específica del torneo, puede ser ajustado a tu ruta real:
+    this.router.navigate(['/tournaments', split.id]);
   }
 }
