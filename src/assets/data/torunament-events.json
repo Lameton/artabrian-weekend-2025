@@ -1,0 +1,38 @@
+[
+  {
+    "id": "mtg",
+    "name": "MTG Modern Championship",
+    "day": "Sábado",
+    "hour": "10:00",
+    "prize": 500,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "Trofeo + 250€ + Playmat exclusivo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "150€ + Playmat"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg-event.jpg"
+  },
+  {
+    "id": "swu",
+    "name": "SWU Galactic Showdown",
+    "day": "Domingo",
+    "hour": "12:00",
+    "prize": 300,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "Caja de sobres + Trofeo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "Caja de sobres"
+      }
+    ],
+    "backgroundPath": "/assets/images/swu-event.jpg"
+  }
+]

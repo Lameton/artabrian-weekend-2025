@@ -1,23 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { TournamentSplitService } from '../../../services/tournament-split.service';
 
 @Component({
   selector: 'split-landing',
   standalone: true,
-  imports: [],
   templateUrl: './split-landing.html',
-  styleUrls: ['./split-landing.scss'], // opcional
+  styleUrls: ['./split-landing.scss'],
 })
 export class SplitLanding {
-  // Estado para controlar qué panel tiene el hover activo
-  hoveredPanel: 'mtg' | 'swu' | null = null;
+  private splitService = inject(TournamentSplitService);
+  private router = inject(Router);
 
-  // Método para registrar el panel que recibe el hover
-  onHover(panel: 'mtg' | 'swu') {
-    this.hoveredPanel = panel;
+  hoveredPanelIndex: number | null = null;
+
+  splits = toSignal(this.splitService.getSplits(), { initialValue: [] });
+
+  tournamentName = computed(() => this.splits()[0]?.name ?? null);
+
+  onHover(index: number) {
+    this.hoveredPanelIndex = index;
   }
 
-  // Método para limpiar el estado cuando se quita el hover
   onLeave() {
-    this.hoveredPanel = null;
+    this.hoveredPanelIndex = null;
+  }
+
+  goToTournament(split: { id: string; name: string /* otros campos */ }) {
+    // Navega a la página específica del torneo, puede ser ajustado a tu ruta real:
+    this.router.navigate(['/tournaments', split.id]);
   }
 }
