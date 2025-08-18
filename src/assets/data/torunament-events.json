@@ -1,5 +1,6 @@
 [
   {
+    "id": "mtg",
     "name": "MTG Modern Championship",
     "day": "Sábado",
     "hour": "10:00",
@@ -17,6 +18,7 @@
     "backgroundPath": "/assets/images/mtg-event.jpg"
   },
   {
+    "id": "swu",
     "name": "SWU Galactic Showdown",
     "day": "Domingo",
     "hour": "12:00",
