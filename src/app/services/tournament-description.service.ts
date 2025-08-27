@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { TournamentDescription } from '../models/tournament-description.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TournamentDescriptionService {
   private jsonUrl = 'assets/data/tournament-description.json';
@@ -16,10 +16,12 @@ export class TournamentDescriptionService {
     return this.http.get<TournamentDescription[]>(this.jsonUrl);
   }
 
-  getDescriptionById(id: string): Observable<TournamentDescription | undefined> {
+  getDescriptionById(
+    id: string
+  ): Observable<TournamentDescription | undefined> {
     return this.http.get<TournamentDescription[]>(this.jsonUrl).pipe(
-      map(descriptions => descriptions.find(desc => desc.id === id)),
-      catchError(error => {
+      map((descriptions) => descriptions.find((desc) => desc.id === id)),
+      catchError((error) => {
         console.error('Error fetching tournament description:', error);
         return of(undefined);
       })

@@ -1,0 +1,35 @@
+<div class="w-full mx-auto pb-2">
+  <span
+    class="block text-center md:text-2xl sm:text-xl text-black italic font-bold mt-2 mb-4"
+  >
+    Nuestros colaboradores:
+  </span>
+
+  <!-- Sponsors principales: siempre 2 columnas -->
+  <div class="grid grid-cols-2 gap-2 mb-4 items-center max-w-md mx-auto">
+    @for (sponsor of principalSponsors; track sponsor.name) {
+    <div class="flex items-center justify-center h-8">
+      <img
+        [src]="sponsor.logo"
+        [alt]="'Logo ' + sponsor.name"
+        class="max-w-[100%l object-contain"
+      />
+    </div>
+    }
+  </div>
+
+  <!-- Sponsors secundarios: 2 columnas en móvil, más en desktop -->
+  <div
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 items-center max-w-2xl mx-auto"
+  >
+    @for (sponsor of secondarySponsors; track sponsor.name) {
+    <div class="flex items-center justify-center h-12 px-2">
+      <img
+        [src]="sponsor.logo"
+        [alt]="'Logo ' + sponsor.name"
+        class="max-h-full max-w-[100%] object-contain"
+      />
+    </div>
+    }
+  </div>
+</div>
