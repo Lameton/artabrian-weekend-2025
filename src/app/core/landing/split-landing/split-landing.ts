@@ -7,7 +7,6 @@ import { TournamentSplitService } from '../../../services/tournament-split.servi
   selector: 'split-landing',
   standalone: true,
   templateUrl: './split-landing.html',
-  styleUrls: ['./split-landing.scss'],
 })
 export class SplitLanding {
   private splitService = inject(TournamentSplitService);

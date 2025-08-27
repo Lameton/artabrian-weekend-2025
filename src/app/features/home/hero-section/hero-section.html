@@ -1,53 +1,62 @@
 <div
-  class="w-screen min-h-screen flex flex-col md:flex-row font-sans bg-neutral-100 select-none"
+  role="banner"
+  class="grid grid-cols-1 md:grid-cols-2 min-h-screen font-sans bg-neutral-100 select-none z-20"
+  style="font-family: 'Rubik', sans-serif"
 >
-  <!-- Panel Izquierdo - Hero text -->
+  <!-- Columna izquierda: visible siempre -->
   <div
-    class="flex-1 flex items-center justify-center px-4 md:px-8 py-8 relative overflow-hidden"
+    class="relative overflow-hidden flex flex-col justify-center items-center px-4 md:px-8 py-12"
   >
-    <!-- Capa del fondo con opacidad -->
     <div
-      class="absolute inset-0 bg-[url('assets/images/noise/bg-noise-white.jpg')] bg-cover bg-center opacity-50"
+      class="absolute inset-0 bg-[url('assets/images/noise/bg-noise-white.jpg')] bg-cover bg-center opacity-60"
     ></div>
-
-    <!-- Contenido encima -->
-    <div class="relative z-10 text-center space-y-6 max-w-xl">
+    <div
+      class="relative z-10 max-w-xl text-center animate-fade-in-up space-y-4"
+    >
       <h1
-        class="md:text-6xl sm:text-2xl font-extrabold tracking-wide text-black drop-shadow-xl"
+        class="text-4xl md:text-6xl font-extrabold tracking-wide text-black drop-shadow-xl"
       >
-        Artabrian Weekend 2025
+        {{ activeDescription().name }}
       </h1>
-      <span class="block mt-2 text-4xl font-extrabold text-yellow-600 md:py-2">
-        14 - 15 - 16 de noviembre
-      </span>
-      <p class="text-base md:text-2xl font-bold text-black/90">
-        Vive el mayor encuentro de Magic: The Gathering en el noroeste de
-        España. Ofreceremos diferentes torneos
-        <b>Legacy, Modern, Standard, Pauper y Premodern</b> con grandes premios
-        a lo largo del fin de semana.
-        <br />
+      <p class="text-blue-600 font-bold md:text-4xl sm:text-2xl">
+        {{ activeDescription().dates }}
       </p>
-      <button>
-        <a
-          href="#inscripcion"
-          class="inline-block px-8 py-2 text-lg font-bold uppercase rounded bg-yellow-600 text-white shadow-lg hover:bg-yellow-800 transition cursor-pointer"
-        >
-          Inscríbete
-        </a>
+      <p class="text-black italic font-bold md:text-2xl sm:text-xl">
+        {{ activeDescription().location }}
+      </p>
+      <p
+        class="font-bold text-black/90 text-base md:text-2xl whitespace-pre-wrap"
+      >
+        {{ descriptionWithBreaks() }}
+      </p>
+      <button
+        aria-label="Inscríbete al torneo"
+        (click)="onInscribeteClick()"
+        class="w-max mx-auto px-6 py-3 text-base font-semibold rounded shadow-lg text-white hover:bg-blue-800 bg-blue-600 transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400 sm:px-8 sm:py-4 md:px-10 md:py-4 sm:text-lg md:text-xl"
+      >
+        INSCRÍBETE
       </button>
+    </div>
+    <div class="mt-10 font-bold text-black/80 text-xs text-center z-10">
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <sponsors />
+      </div>
     </div>
   </div>
 
-  <!-- Panel Derecho - Imagen de fondo + overlay + cartel -->
+  <!-- Columna derecha: oculta en móvil, visible desktop/tablet -->
   <div
-    class="flex-1 relative flex items-center justify-center min-h-[40vh] md:min-h-0 bg-[url('assets/images/mtg/bg-mtg-poster.png')] bg-cover bg-center"
+    class="hidden md:flex relative min-h-[40vh] items-center justify-center"
+    [style.backgroundImage]="'url(' + activeDescription().backgroundPath + ')'"
+    style="background-position: center; background-size: cover"
   >
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative z-10 flex items-center justify-center w-full h-full">
+    <div class="relative z-10 flex w-full h-full items-center justify-center">
       <img
-        src="assets/images/mtg/mtg-poster.png"
-        alt="Cartel oficial Artabrian Weekend 2025 – Torneo Magic The Gathering en Galicia"
-        class="shadow-lg max-w-[90%] md:max-w-[75%] lg:max-w-[65%]"
+        [src]="activeDescription().posterPath"
+        [alt]="'Cartel oficial ' + activeDescription().name"
+        class="shadow-lg md:max-w-[0%] lg:max-w-[60%] cursor-zoom-in"
+        (click)="showPosterZoom()"
       />
     </div>
   </div>
