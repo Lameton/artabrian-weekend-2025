@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { TournamentContact } from '../models/tournament-contact.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TournamentContactService {
   private jsonUrl = 'assets/data/tournament-contact.json';

@@ -17,7 +17,12 @@ export const routes: Routes = [
     // Es habitual poner "App" aquí cuando no tienes una landing específica.
   },
   {
-    path: 'HeroSection',
+    path: 'home',
+    title: 'Home',
+    loadComponent: () => import('./features/home/home').then((m) => m.Home),
+  },
+  {
+    path: 'herosection',
     title: 'hero-section',
     loadComponent: () =>
       import('./features/home/hero-section/hero-section').then(
@@ -26,7 +31,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'Tournaments',
+    path: 'tournaments',
     title: 'tournaments',
     loadComponent: () =>
       import('./features/home/tournaments/tournaments').then(

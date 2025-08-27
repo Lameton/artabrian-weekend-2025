@@ -1,16 +1,20 @@
 [
   {
     "id": "mtg",
-    "name": "MTG",
-    "description": "Magic: The Gathering trae su torneo más competitivo con formatos como Modern, Pioneer y Commander. ¡Prepárate para invocar tus mejores hechizos!",
-    "posterPath": "/assets/images/mtg-poster.jpg",
-    "backgroundPath": "/assets/images/mtg-background.jpg"
+    "name": "Artabrian Weekend 2025",
+    "dates": "14, 15 Y 16 DE NOVIEMBRE",
+    "location": "Pazo do Monte, Ferrol",
+    "description": "Durante tres días intensos, podrás participar en torneos de Legacy, Modern, Standard, Pauper, Premodern y Team Tríos.",
+    "posterPath": "/assets/images/mtg/mtg-poster.png",
+    "backgroundPath": "/assets/images/mtg/bg-mtg-poster.png"
   },
   {
     "id": "swu",
-    "name": "SWU",
+    "name": "Artabrian Weekend 2025",
+    "dates": "14, 15 Y 16 DE NOVIEMBRE",
+    "location": "Pazo do Monte, Ferrol",
     "description": "Star Wars Unlimited se abre camino con un torneo épico lleno de estrategia, naves y la Fuerza. ¡No te lo pierdas!",
-    "posterPath": "/assets/images/swu-poster.jpg",
-    "backgroundPath": "/assets/images/swu-background.jpg"
+    "posterPath": "/assets/images/swu/swu-poster.jpg",
+    "backgroundPath": "/assets/images/swu/bg-swu-poster.png"
   }
 ]

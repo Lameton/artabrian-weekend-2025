@@ -1,14 +1,109 @@
-<div class="w-screen h-screen relative select-none font-sans">
-  <!-- Logotipo Artabrian Weekend-->
-  <div class="absolute z-20 flex items-center justify-center w-full h-25">
-    <img
-      src="assets/logos/artabrian-weekend-2025.svg"
-      alt="Artabrian weekend logo"
-      class="w-60 h-auto"
-    />
+<div
+  class="w-screen h-screen relative select-none font-sans bg-black"
+  style="font-family: 'Rubik', sans-serif"
+>
+  <!-- Header responsive -->
+  <div class="absolute top-2 w-full z-30">
+    <!-- Desktop / Tablet: logo izquierda, RRSS derecha -->
+    <div class="hidden sm:flex items-center justify-between px-[5vw] h-[75px]">
+      <!-- Logotipo evento, tamaño responsive -->
+      <div class="flex-shrink-0" style="align-self: flex-start">
+        <img
+          src="assets/logos/artabrian-weekend-2025.svg"
+          alt="Logo oficial Artabrian Weekend 2025, torneo de Trading Card Games"
+          class="h-10 sm:h-12 md:h-16 lg:h-20 w-auto max-w-full"
+        />
+      </div>
+      <!-- Iconos RRSS, tamaño y estilo responsive -->
+      <div class="flex items-center space-x-4">
+        <!-- Icono X -->
+        <a
+          href="https://x.com/artabriannights"
+          target="_blank"
+          aria-label="X"
+          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-black"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 120 120"
+            fill="currentColor"
+            class="w-6 md:w-7 h-6 md:h-7 transition-colors text-black group-hover:text-white"
+          >
+            <path
+              d="M93.55 15H110L71.6 59.1L116 105H82.95L55.05 74.11L23.1 105H6L46.41 58.78L4 15h34.32L60.73 43.06z"
+            />
+          </svg>
+        </a>
+        <!-- Icono Instagram -->
+        <a
+          href="https://www.instagram.com/Artabrian_Nights/"
+          target="_blank"
+          aria-label="Instagram"
+          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-black"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-7 md:w-8 h-7 md:h-8 transition-colors text-black group-hover:text-white"
+          >
+            <rect
+              x="2"
+              y="2"
+              width="20"
+              height="20"
+              rx="5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="5.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle cx="17" cy="7" r="1.3" fill="currentColor" />
+          </svg>
+        </a>
+        <!-- Icono Media Luna más marcada -->
+        <a
+          href="https://artabriannights.github.io/"
+          target="_blank"
+          aria-label="Media luna"
+          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-black"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="w-7 md:w-8 h-7 md:h-8 transition-colors text-black group-hover:text-white"
+          >
+            <path
+              d="M21 12c0 5-4 9-9 9a9 9 0 0 1 0-18c.4 0 .8 0 1.2.1A7 7 0 0 0 21 12z"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Móvil: logo centrado y RRSS ocultas -->
+    <div class="flex sm:hidden items-center justify-center w-full">
+      <img
+        src="assets/logos/artabrian-weekend-2025.svg"
+        alt="Logo oficial Artabrian Weekend 2025"
+        class="h-12 w-auto max-w-[70vw] mt-2"
+      />
+    </div>
   </div>
-  <!-- Fondo spliteado -->
-  <div class="absolute inset-0 flex">
+
+  <!-- Fondo spliteado solo visible en pantallas md y superiores -->
+  <div class="absolute inset-0 flex hidden md:flex">
     <div
       class="flex-1 bg-[url(./assets/images/noise/bg-noise-black.jpg)] bg-cover bg-center"
     ></div>
@@ -17,39 +112,55 @@
     ></div>
   </div>
 
-  <!-- Contenedor central con proporción 16:9 y contenido centrado -->
-  <div class="absolute inset-0 flex items-center justify-center z-10 shadow-lg">
+  <!-- Paneles split con hover dinámico, ocupando toda la pantalla en móvil -->
+  <div
+    class="absolute inset-0 flex items-center justify-center z-10 shadow-lg h-full"
+  >
     <div
-      class="aspect-[16/9] max-w-[90vw] max-h-[80vh] w-full bg-transparent rounded-md overflow-hidden shadow-lg flex"
+      class="flex flex-col md:flex-row w-full h-full md:max-w-[90vw] md:max-h-[80vh] md:rounded-md md:overflow-visible lg:overflow-hidden lg:aspect-[16/9] shadow-lg"
     >
-      <!-- Panel MTG (izquierda) -->
-      @for (split of splits(); track split) {
-      <a
-        [style.--image-url]="'url(' + split.imagePath + ')'"
-        class="flex-1 flex flex-col items-center justify-center transition-all duration-300 hover:flex-[5] relative overflow-hidden group min-w-0 bg-[image:var(--image-url)] bg-cover bg-center grayscale hover:grayscale-0 p-8"
-        tabindex="0"
+      @for (split of splits(); track split.id) {
+      <div
         role="link"
+        tabindex="0"
+        (mouseenter)="onHover($index)"
+        (mouseleave)="onLeave()"
+        (click)="goToTournament(split)"
+        [class]="
+          [
+            hoveredPanelIndex !== null && hoveredPanelIndex !== $index
+              ? 'md:grayscale'
+              : '',
+            hoveredPanelIndex === null || hoveredPanelIndex === $index
+              ? 'md:grayscale-0'
+              : '',
+            hoveredPanelIndex === $index ? 'md:flex-[5]' : '',
+            hoveredPanelIndex === null || hoveredPanelIndex !== $index
+              ? 'md:flex-1'
+              : '',
+            'flex flex-col items-center justify-center min-w-0 bg-[image:var(--image-url)] bg-cover bg-center p-8 transition-all duration-300 h-full cursor-pointer'
+          ].join(' ')
+        "
+        [style.--image-url]="'url(' + split.imagePath + ')'"
       >
-        <div class="text-center max-w-xs md:max-w-xs w-full">
+        <div class="text-center max-w-xs w-full">
           <h1
-            class="md:text-5xl sm:text-2xl font-extrabold tracking-wide text-white mb-4 text-shadow-xs"
+            class="font-extrabold text-white tracking-wide text-shadow-lg mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug"
           >
             {{ split.name }}
           </h1>
           <p
-            class="text-lg md:text-xl font-bold text-white/90 mb-6 text-shadow-xs"
+            class="font-semibold text-white tracking-wide text-shadow-lg text-base sm:text-lg md:text-lg mb-8 leading-relaxed"
           >
             {{ split.slogan }}
           </p>
-          <button>
-            <span
-              class="inline-block px-8 py-2 text-lg font-bold uppercase rounded bg-yellow-600 text-white shadow-lg hover:bg-yellow-800 transition cursor-pointer"
-            >
-              Entrar
-            </span>
+          <button
+            class="bg-blue-600 hover:bg-blue-800 text-white font-semibold shadow-strong rounded px-8 py-2 sm:text-lg md:text-xl shadow-lg transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400"
+          >
+            ENTRAR
           </button>
         </div>
-      </a>
+      </div>
       }
     </div>
   </div>
