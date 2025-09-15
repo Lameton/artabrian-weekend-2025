@@ -1,0 +1,372 @@
+[
+  {
+    "id": "mtg",
+    "name": "Team Trios",
+    "day": "viernes",
+    "hour": "16:00",
+    "prize": 30,
+    "details": "Se permiten un máximo de 10 proxies en Legacy",
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% Recaudación en Ártabros + Material promocional + Artabrian Weekend 2025 Playmat Team trios Winner (x3)"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30% Recaudación en Ártabros + Material promocional"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "10% Recaudación en Ártabros + Material promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-trios.jpg"
+  },
+
+  {
+    "id": "mtg",
+    "name": "8-man",
+    "day": "viernes",
+    "hour": "16:00",
+    "prize": 10,
+    "details": "Para apuntarse hay que acudir presencialmente a la mesa del evento y se anunciará cuando haya ocho participantes.",
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% Ártabros + Ronda Bye (Legacy, Modern o Standard)"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30 Ártabros"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-8-man.jpg"
+  },
+  {
+    "id": "mtg",
+    "name": "legacy",
+    "day": "sábado",
+    "hour": "10:00",
+    "prize": 30,
+    "details": "Se permiten un máximo de 10 proxies; las dual lands son de la edición 'Revised'",
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "Underground Sea + Tropical Island + Artabrian Weekend 2025 Playmat Legacy Winner + Trofeo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "Tropical Island + Artabrian Weekend 2025 Playmat Legacy Finalist"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "Bayou"
+      },
+      {
+        "standing": "5º/8º Puesto",
+        "description": "100 Ártabros"
+      },
+      {
+        "standing": "9º/16º Puesto",
+        "description": "Cupón Cardmarket 20€ + Material Promocional"
+      },
+      {
+        "standing": "17º/64º Puesto",
+        "description": "Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-legacy.jpg"
+  },
+  {
+    "id": "mtg",
+    "name": "8-man",
+    "day": "sábado",
+    "hour": "10:00",
+    "prize": 10,
+    "details": "Para apuntarse hay que acudir presencialmente a la mesa del evento y se anunciará cuando haya ocho participantes.",
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% Ártabros + Ronda Bye (Modern)"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30 Ártabros"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-8-man.jpg"
+  },
+
+  {
+    "id": "mtg",
+    "name": "standard",
+    "day": "sábado",
+    "hour": "12:00",
+    "prize": 30,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "x3 Play Booster Box Final Fantasy + Artabrian Weekend 2025 Playmat Standard Winner + Trofeo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "x1 Play Booster Box Final Fantasy + Artabrian Weekend 2025 Playmat Standard Finalist + 50 Ártabros"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "100 Ártabros"
+      },
+      {
+        "standing": "5º/8º Puesto",
+        "description": "50 Ártabros"
+      },
+      {
+        "standing": "9º/16º Puesto",
+        "description": "Cupón Cardmarket 20€ + Material Promocional"
+      },
+      {
+        "standing": "17º/32º Puesto",
+        "description": "Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-standard.jpg"
+  },
+
+  {
+    "id": "mtg",
+    "name": "pauper",
+    "day": "sábado",
+    "hour": "13:00",
+    "prize": 20,
+    "details": "Los playsets son de la edición Archivo místico, versión foil y en idioma japones; los Secret Lair es producto sellado, no individual",
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "x4 Lightning Bolt + x4 Counterspell + Secret Lair Bob Esponja Lands + Artabrian Weekend 2025 Playmat Pauper Winner + Trofeo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "x4 Brainstorm + Secret Lair Bob Esponja Lands + Artabrian Weekend 2025 Playmat Pauper Finalist"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "Secret Lair Bob Esponja Lands"
+      },
+      {
+        "standing": "5º/8º Puesto",
+        "description": "Cupón Cardmarket 30€"
+      },
+      {
+        "standing": "9º/16º Puesto",
+        "description": "Cupón Cardmarket 20€ + Material Promocional"
+      },
+      {
+        "standing": "17º/32º Puesto",
+        "description": "Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-pauper.jpg"
+  },
+
+  {
+    "id": "mtg",
+    "name": "modern",
+    "day": "domingo",
+    "hour": "10:00",
+    "prize": 30,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "Modern Horizons III Play Booster Box (x4) + Artabrian Weekend 2025 Playmat Modern Winner + Trofeo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "Modern Horizons III Play Booster Box (x2) + Artabrian Weekend 2025 Playmat Modern Finalist"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "Modern Horizons III Play Booster Box (x1) "
+      },
+      {
+        "standing": "5º/8º Puesto",
+        "description": "100 Ártabros"
+      },
+      {
+        "standing": "9º/16º Puesto",
+        "description": "Cupón Cardmarket 20€ + Material Promocional"
+      },
+      {
+        "standing": "17º/64º Puesto",
+        "description": "Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-modern.jpg"
+  },
+  {
+    "id": "mtg",
+    "name": "8-man",
+    "day": "domingo",
+    "hour": "10:00",
+    "prize": 10,
+    "details": "Para apuntarse hay que acudir presencialmente a la mesa del evento y se anunciará cuando haya ocho participantes.",
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% Ártabros"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30 Ártabros"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-8-man.jpg"
+  },
+
+  {
+    "id": "mtg",
+    "name": "premodern",
+    "day": "domingo",
+    "hour": "13:00",
+    "prize": 30,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% Recaudación en Ártabros + Material promocional + Artabrian Weekend 2025 Playmat Premodern Winner"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30% Recaudación en Ártabros + Material promocional"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "10% Recaudación en Ártabros + Material promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/mtg/bg-premodern.jpg"
+  },
+
+  {
+    "id": "swu",
+    "name": "team trios",
+    "day": "viernes",
+    "hour": "16:00",
+    "prize": 30,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% recaudación en Ártabros + 1º Ronda Bye del Main Event Premier + x3 Artabrian Playmat Ganador + Material Promocional"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30% recaudación en Ártabros + Material Promocional"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "10% recaudación en Ártabros + Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/swu-event.jpg"
+  },
+
+  {
+    "id": "swu",
+    "name": "8-man",
+    "day": "viernes",
+    "hour": "16:00",
+    "prize": 10,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% recaudación en Ártabros + 1º Ronda Bye del Main Event Premier"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30% recaudación en Ártabros"
+      }
+    ],
+    "backgroundPath": "/assets/images/swu-event.jpg"
+  },
+
+  {
+    "id": "swu",
+    "name": "main event premier",
+    "day": "sábado",
+    "hour": "10:30",
+    "prize": 30,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "x2 Caja Carbonita 'Set en curso' + Sable laser Yoda Black Series + Artabrian Playmat Ganador +Trofeo"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "x1 Caja Carbonita 'Set en curso' + Deck Pod Official Gamegenic + Artabrian Playmat Finalista"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "x2 Caja 'Set en curso'"
+      },
+      {
+        "standing": "5º/8º Puesto",
+        "description": "x1 Caja 'Set en curso'"
+      },
+      {
+        "standing": "17º y en adelante",
+        "description": "Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/swu-event.jpg"
+  },
+  {
+    "id": "swu",
+    "name": "8-man",
+    "day": "sábado",
+    "hour": "11:00",
+    "prize": 10,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "50% recaudación en Ártabros + 1º Ronda Bye del Side Event Premier"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "30% recaudación en Ártabros"
+      }
+    ],
+    "backgroundPath": "/assets/images/swu-event.jpg"
+  },
+  {
+    "id": "swu",
+    "name": "side event premier",
+    "day": "domingo",
+    "hour": "10:30",
+    "prize": 20,
+    "rewards": [
+      {
+        "standing": "1º Puesto",
+        "description": "40% recaudación en Ártabros + Artabrian Playmat Ganador + Material Promocional"
+      },
+      {
+        "standing": "2º Puesto",
+        "description": "40% recaudación en Ártabros + Material Promocional"
+      },
+      {
+        "standing": "3º/4º Puesto",
+        "description": "10% recaudación en Ártabros + Material Promocional"
+      },
+      {
+        "standing": "5º/8º Puesto",
+        "description": "5% recaudación en Ártabros + Material Promocional"
+      },
+      {
+        "standing": "9º-16º",
+        "description": "Cupón Cardmarket 20€ + Material Promocional"
+      },
+      {
+        "standing": "17º-32º",
+        "description": "Material Promocional"
+      }
+    ],
+    "backgroundPath": "/assets/images/swu-event.jpg"
+  }
+]

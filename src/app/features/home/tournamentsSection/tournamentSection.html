@@ -1,0 +1,115 @@
+<section class="relative bg-black min-h-screen text-white py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <h1
+      class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug"
+    >
+      Torneos del Artabrian Weekend 2025
+    </h1>
+    <p
+      class="text-base md:text-lg lg:text-xl text-gray-300 mb-10 max-w-3xl leading-normal md:leading-7 lg:leading-8"
+    >
+      Explora todos los torneos programados para el Artabrian Weekend 2025. Aquí
+      encontrarás nuestros eventos, con detalles de horarios, premios y reglas
+      específicas para cada torneo desde viernes hasta domingo.
+    </p>
+    <!-- Menú de días: tabs horizontal simple y scrollable para móvil -->
+    <nav
+      role="tablist"
+      aria-label="Seleccione día de torneo"
+      class="flex overflow-x-auto space-x-4 mb-8 border-b border-gray-300 px-4 py-3 max-w-6xl mx-auto"
+    >
+      <button
+        role="tab"
+        class="whitespace-nowrap rounded-md px-4 py-2 font-semibold text-sm md:text-base lg:text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        [class.text-gray-700]="selectedDay() !== 'viernes'"
+        [class.text-blue-700]="selectedDay() === 'viernes'"
+        [class.border-b-4]="selectedDay() === 'viernes'"
+        [class.border-blue-600]="selectedDay() === 'viernes'"
+        [attr.aria-selected]="selectedDay() === 'viernes'"
+        (click)="selectedDay.set('viernes')"
+        id="tab-viernes"
+        aria-controls="tabpanel-viernes"
+        tabindex="0"
+      >
+        Viernes
+      </button>
+
+      <button
+        role="tab"
+        class="whitespace-nowrap rounded-md px-4 py-2 font-semibold text-sm md:text-base lg:text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        [class.text-gray-700]="selectedDay() !== 'sábado'"
+        [class.text-blue-700]="selectedDay() === 'sábado'"
+        [class.border-b-4]="selectedDay() === 'sábado'"
+        [class.border-blue-600]="selectedDay() === 'sábado'"
+        [attr.aria-selected]="selectedDay() === 'sábado'"
+        (click)="selectedDay.set('sábado')"
+        id="tab-sabado"
+        aria-controls="tabpanel-sabado"
+        tabindex="-1"
+      >
+        Sábado
+      </button>
+
+      <button
+        role="tab"
+        class="whitespace-nowrap rounded-md px-4 py-2 font-semibold text-sm md:text-base lg:text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        [class.text-gray-700]="selectedDay() !== 'domingo'"
+        [class.text-blue-700]="selectedDay() === 'domingo'"
+        [class.border-b-4]="selectedDay() === 'domingo'"
+        [class.border-blue-600]="selectedDay() === 'domingo'"
+        [attr.aria-selected]="selectedDay() === 'domingo'"
+        (click)="selectedDay.set('domingo')"
+        id="tab-domingo"
+        aria-controls="tabpanel-domingo"
+        tabindex="-1"
+      >
+        Domingo
+      </button>
+    </nav>
+
+    <!-- Panel día Viernes -->
+    <section
+      role="tabpanel"
+      [attr.aria-labelledby]="'tab-viernes'"
+      id="tabpanel-viernes"
+      *ngIf="selectedDay() === 'viernes'"
+      class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 py-8 px-4 min-h-[80vh]"
+    >
+      <tournament-card
+        *ngFor="let event of viernesEvents()"
+        [tournament]="event"
+        class="transition-all duration-200 rounded-3xl hover:ring-3 hover:ring-blue-800/60 hover:ring-offset-3 hover:ring-offset-black"
+      ></tournament-card>
+    </section>
+
+    <!-- Panel día Sábado -->
+    <section
+      role="tabpanel"
+      [attr.aria-labelledby]="'tab-sabado'"
+      id="tabpanel-sabado"
+      *ngIf="selectedDay() === 'sábado'"
+      class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 py-8 px-4 min-h-[75vh]"
+    >
+      <tournament-card
+        *ngFor="let event of sabadoEvents()"
+        [tournament]="event"
+        class="transition-all duration-200 rounded-3xl hover:ring-3 hover:ring-blue-800/60 hover:ring-offset-3 hover:ring-offset-black"
+      ></tournament-card>
+    </section>
+
+    <!-- Panel día Domingo -->
+    <section
+      role="tabpanel"
+      [attr.aria-labelledby]="'tab-domingo'"
+      id="tabpanel-domingo"
+      *ngIf="selectedDay() === 'domingo'"
+      class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 py-8 px-4 min-h-[75vh]"
+    >
+      <tournament-card
+        *ngFor="let event of domingoEvents()"
+        [tournament]="event"
+        class="transition-all duration-200 rounded-3xl hover:ring-3 hover:ring-blue-800/60 hover:ring-offset-3 hover:ring-offset-black"
+      ></tournament-card>
+    </section>
+  </div>
+</section>

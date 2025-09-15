@@ -1,5 +1,5 @@
 {
-  "backgroundPath": "/assets/images/location-background.jpg",
+  "backgroundPath": "/assets/images/location/location.jpg",
   "adress": "Rúa de San Pedro 123, 15703 Santiago de Compostela, Galicia",
-  "geopath": "https://maps.google.com/?q=42.8806,-8.5457"
+  "geopath": "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d726.0446660979202!2d-2.14603!3d43.28958!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDPCsDE3JzIyLjUiTiAywrAwOCc0NS43Ilc!5e0!3m2!1ses!2ses!4v1757954791696!5m2!1ses!2ses"
 }

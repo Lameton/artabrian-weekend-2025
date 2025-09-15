@@ -1,13 +1,13 @@
 <nav
   role="navigation"
-  class="absolute top-0 z-50 w-full bg-background transition-shadow duration-300"
+  class="sticky top-0 z-50 w-full bg-black/90 shadow-md transition-shadow duration-300"
   [class.shadow-md]="hasScrolled"
 >
   <div
     class="max-w-screen-xl mx-auto flex items-center justify-between p-4 md:p-6"
   >
     <!-- Logo -->
-    <a routerLink="/" class="font-bold text-lg md:text-xl lg:text-2xl">
+    <a href="#home" class="font-bold text-lg md:text-xl lg:text-2xl text-white">
       MiApp
     </a>
 
@@ -17,11 +17,11 @@
       aria-label="Toggle menu"
       [attr.aria-expanded]="isOpen"
       aria-controls="main-menu"
-      class="md:hidden text-primary focus:outline-none"
+      class="md:hidden text-white p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
     >
       <svg
         *ngIf="!isOpen"
-        class="w-6 h-6"
+        class="w-6 h-6 transition-all duration-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -35,7 +35,7 @@
       </svg>
       <svg
         *ngIf="isOpen"
-        class="w-6 h-6"
+        class="w-6 h-6 transition-all duration-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -52,7 +52,7 @@
     <!-- Menú -->
     <ul
       id="main-menu"
-      class="w-full md:w-auto transition-all duration-300 ease-in-out"
+      class="w-full md:w-auto transition-all duration-300 ease-in-out bg-black/90 md:bg-transparent md:flex md:flex-row md:space-x-8 md:mt-0 md:border-0 md:p-0 md:relative absolute top-full left-0 right-0 md:static"
       [class.hidden]="isMobile && !isOpen"
       [class.flex]="!isMobile || isOpen"
       [class.flex-col]="isMobile && isOpen"
@@ -61,17 +61,17 @@
       [class.border]="isMobile && isOpen"
       [class.border-primary]="isMobile && isOpen"
       [class.rounded-lg]="isMobile && isOpen"
-      [class.bg-background]="isMobile && isOpen"
       [class.p-6]="isMobile && isOpen"
-      class="md:flex md:flex-row md:space-x-8 md:mt-0 md:border-0 md:p-0"
     >
-      <li *ngFor="let route of appRoutes; trackBy: trackByPath">
+      <li *ngFor="let section of pageSections; trackBy: trackById">
         <a
-          [routerLink]="route.path"
-          routerLinkActive="text-accent"
-          class="block py-2 px-3 text-sm md:text-base lg:text-lg text-primary rounded-sm hover:bg-secondary hover:text-background md:hover:bg-transparent md:hover:text-secondary transition-transform hover:scale-105 font-bold"
+          href="#{{ section.id }}"
+          (click)="onScrollToSection($event, section.id)"
+          [class.text-yellow-400]="activeSection === section.id"
+          [class.font-extrabold]="highlightedSection === section.id"
+          class="block py-2 px-3 text-sm md:text-base lg:text-lg text-white rounded-sm hover:bg-yellow-300 hover:text-black transition-transform hover:scale-105 font-bold cursor-pointer"
         >
-          {{ route.title }}
+          {{ section.title }}
         </a>
       </li>
     </ul>
