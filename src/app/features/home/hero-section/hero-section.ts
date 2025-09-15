@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, Input, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TournamentDescriptionService } from '../../../services/tournament-description.service';
@@ -14,16 +14,36 @@ export class HeroSection {
   private descriptionService = inject(TournamentDescriptionService);
   private router = inject(Router);
 
-  // Señal con todas las descripciones
+  // Signal con todas las descripciones
   descriptions = toSignal(this.descriptionService.getDescriptions(), {
     initialValue: [],
   });
 
-  // Descripción activa (primer elemento o valor por defecto)
+  // Recibe el id seleccionado por Input
+  @Input() tcgId: string | null = null;
+
+  // Descripción activa filtrada según tcgId
   activeDescription = computed(() => {
-    const desc = this.descriptions()[0];
+    const id = this.tcgId;
+    const all = this.descriptions();
+    if (!id) {
+      return (
+        all[0] ?? {
+          id: '',
+          name: '',
+          dates: '',
+          location: '',
+          description: '',
+          posterPath: '',
+          backgroundPath: '',
+          principalSponsors: [],
+          secondarySponsors: [],
+        }
+      );
+    }
     return (
-      desc ?? {
+      all.find((desc) => desc.id === id) ??
+      all[0] ?? {
         id: '',
         name: '',
         dates: '',
@@ -37,14 +57,14 @@ export class HeroSection {
     );
   });
 
-  // Texto con saltos de línea transformados en <br>
+  // Texto con saltos de línea convertidos a <br>
   descriptionWithBreaks = computed(() =>
     this.activeDescription().description
       ? this.activeDescription().description.replace(/\n/g, '<br>')
       : ''
   );
 
-  // Lista combinada de sponsors (principales + secundarios)
+  // Lista combinada de sponsors
   sponsorsList = computed(() => [
     ...this.activeDescription().principalSponsors,
     ...this.activeDescription().secondarySponsors,
@@ -55,7 +75,7 @@ export class HeroSection {
     this.router.navigate(['/inscripcion']);
   }
 
-  // Estado para modal y nivel de zoom
+  // Signals para modal y zoom
   posterZoomVisible = signal(false);
   zoomLevel = signal(1);
 

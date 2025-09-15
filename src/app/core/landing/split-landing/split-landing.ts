@@ -26,8 +26,7 @@ export class SplitLanding {
     this.hoveredPanelIndex = null;
   }
 
-  goToTournament(split: { id: string; name: string /* otros campos */ }) {
-    // Navega a la página específica del torneo, puede ser ajustado a tu ruta real:
-    this.router.navigate(['/tournaments', split.id]);
+  goToTournament(split: { id: string; name: string }) {
+    this.router.navigate(['/home'], { queryParams: { tcgId: split.id } });
   }
 }

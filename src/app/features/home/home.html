@@ -1,3 +1,4 @@
-<artabrian-navbar></artabrian-navbar>
-<hero-section></hero-section>
-<tournaments></tournaments>
+<artabrian-navbar />
+<hero-section id="home" [tcgId]="tcgId()"></hero-section>
+<tournament-section id="tournaments" [tcgId]="tcgId()"></tournament-section>
+<location-section [locationData]="locationJson"></location-section>

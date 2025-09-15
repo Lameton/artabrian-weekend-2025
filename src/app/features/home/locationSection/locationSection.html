@@ -1,0 +1,36 @@
+<div
+  role="banner"
+  class="grid grid-cols-1 md:grid-cols-2 min-h-screen font-sans bg-neutral-100 select-none z-20"
+  style="font-family: 'Rubik', sans-serif"
+>
+  <!-- Columna izquierda: imagen -->
+  <div
+    class="hidden md:flex relative min-h-screen items-center justify-center"
+    [style.backgroundImage]="'url(' + backgroundPath + ')'"
+    style="background-position: center; background-size: cover"
+  >
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+  </div>
+
+  <!-- Columna derecha: texto arriba y mapa abajo cada uno 50% -->
+  <div *ngIf="locationData" class="flex flex-col min-h-screen">
+    <div class="flex-1 flex items-start justify-center bg-neutral-100 p-8">
+      <div class="w-full max-w-xl text-left space-y-4">
+        <h2 class="text-3xl font-bold text-black">Localización</h2>
+        <p class="text-lg text-black font-semibold break-words">
+          {{ locationData.adress }}
+        </p>
+        <a
+          [href]="locationData.geopath"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-white font-semibold transition"
+        >
+          Ver en Google Maps
+        </a>
+      </div>
+    </div>
+
+    <div class="flex-1 bg-white rounded-lg overflow-hidden shadow-lg"></div>
+  </div>
+</div>

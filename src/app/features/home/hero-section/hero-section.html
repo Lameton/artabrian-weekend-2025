@@ -26,9 +26,8 @@
       </p>
       <p
         class="font-bold text-black/90 text-base md:text-2xl whitespace-pre-wrap"
-      >
-        {{ descriptionWithBreaks() }}
-      </p>
+        [innerHTML]="descriptionWithBreaks()"
+      ></p>
       <button
         aria-label="Inscríbete al torneo"
         (click)="onInscribeteClick()"
