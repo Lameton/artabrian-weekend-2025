@@ -3,8 +3,9 @@ import { NavbarComponent } from '../../core/header/header';
 import { HeroSection } from './hero-section/hero-section';
 import { ActivatedRoute } from '@angular/router';
 import { TournamentSectionComponent } from './tournamentsSection/tournamentsSection';
-import { CommonModule } from '@angular/common';
 import { LocationSectionComponent } from './locationSection/locationSection';
+import { ContactoComponent } from './contact/contact';
+import { FooterComponent } from '../../core/footer/footer';
 
 @Component({
   selector: 'home',
@@ -14,6 +15,8 @@ import { LocationSectionComponent } from './locationSection/locationSection';
     HeroSection,
     TournamentSectionComponent,
     LocationSectionComponent,
+    ContactoComponent,
+    FooterComponent,
   ],
   templateUrl: './home.html',
 })
@@ -39,8 +42,8 @@ export class Home {
   activeSection = signal<string>('home');
   locationJson = {
     backgroundPath: '/assets/images/location/location.jpg',
-    adress: 'Rúa de San Pedro 123, 15703 Santiago de Compostela, Galicia',
-    geopath: 'https://maps.google.com/?q=42.8806,-8.5457',
+    adress: 'San Pedro de Leixa 82, 15405 Ferrol, Galicia',
+    geopath: 'https://maps.app.goo.gl/2YgpBSwLQirCn7wo7',
   };
 
   constructor() {
@@ -54,6 +57,6 @@ export class Home {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
-    this.activeSection.set(id); // Opcional marca también aquí el activo
+    this.activeSection.set(id);
   }
 }

@@ -1,32 +1,33 @@
 <article
-  class="relative flex flex-col justify-end overflow-hidden rounded-3xl min-h-[360px] h-full shadow-lg transition-transform bg-neutral-800 text-white"
+  class="relative flex flex-col justify-end overflow-hidden rounded-3xl min-h-[360px] h-full shadow-xl transition-transform bg-neutral-800 text-white"
 >
   <!-- Imagen de fondo con carga diferida -->
   <img
     [src]="data().backgroundPath"
     alt="Imagen torneo {{ data().name }}"
-    class="absolute inset-0 w-full h-full object-cover opacity-70"
+    class="absolute inset-0 w-full h-full object-cover opacity-60"
   />
 
   <!-- Overlay para legibilidad -->
   <div
-    class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none"
+    class="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none"
   ></div>
 
   <!-- Contenido -->
-  <div class="relative z-10 p-8 flex flex-col gap-2">
+  <div class="relative z-10 p-6 flex flex-col gap-2">
     <h3
       class="text-3xl font-extrabold leading-snug uppercase tracking-wide text-white drop-shadow-lg"
     >
       {{ data().name }}
     </h3>
-    <hr class="border-b border-neutral-100" />
+    <hr class="border-b-2 border-gray-300" />
     <div class="flex items-center space-x-3 text-lg text-gray-300 mb-2">
       <span class="text-xl font-semibold">{{ data().hour }}</span>
-      <span class="ml-1 text-gray-400">·</span>
-      <span class="text-yellow-300 font-bold text-xl">
-        Precio: {{ data().prize }}€
-      </span>
+      <span class="ml-1 text-gray-300">·</span>
+      <span class="text-blue-400 font-bold text-xl">
+        Precio:
+        {{ data().prize }}€</span
+      >
     </div>
     <p
       *ngIf="data().details"
@@ -36,7 +37,7 @@
     </p>
     <div *ngIf="data().rewards.length">
       <h4
-        class="text-indigo-300 font-bold uppercase text-lg mb-2 tracking-wider drop-shadow-sm"
+        class="text-xl text-gray-300 font-bold uppercase text-lg mb-2 tracking-wider drop-shadow-sm"
       >
         Premios
       </h4>
@@ -45,10 +46,12 @@
           *ngFor="let reward of data().rewards"
           class="grid grid-cols-[auto,1fr] gap-x-3 items-baseline"
         >
-          <span class="text-yellow-300 whitespace-nowrap">
+          <span class="text-blue-400 whitespace-nowrap">
             {{ reward.standing }}:
           </span>
-          <span class="break-words">{{ reward.description }}</span>
+          <span class="break-words text-gray-300">{{
+            reward.description
+          }}</span>
         </li>
       </ul>
     </div>
