@@ -5,7 +5,7 @@
     "day": "viernes",
     "hour": "16:00",
     "prize": 30,
-    "details": "Se permiten un máximo de 10 proxies en Legacy",
+    "details": "Se permiten un máximo de 10 proxies en el mazo de Legacy",
     "rewards": [
       {
         "standing": "1º Puesto",
@@ -48,7 +48,7 @@
     "day": "sábado",
     "hour": "10:00",
     "prize": 30,
-    "details": "Se permiten un máximo de 10 proxies; las dual lands son de la edición 'Revised'",
+    "details": "Máximo de 10 proxies; las dual lands son de la edición 'Revised'",
     "rewards": [
       {
         "standing": "1º Puesto",
@@ -265,7 +265,7 @@
         "description": "10% recaudación en Ártabros + Material Promocional"
       }
     ],
-    "backgroundPath": "/assets/images/swu-event.jpg"
+    "backgroundPath": "/assets/images/swu/swu-bg-4.jpg"
   },
 
   {
@@ -284,7 +284,7 @@
         "description": "30% recaudación en Ártabros"
       }
     ],
-    "backgroundPath": "/assets/images/swu-event.jpg"
+    "backgroundPath": "/assets/images/swu/swu-bg-1.jpg"
   },
 
   {
@@ -296,11 +296,11 @@
     "rewards": [
       {
         "standing": "1º Puesto",
-        "description": "x2 Caja Carbonita 'Set en curso' + Sable laser Yoda Black Series + Artabrian Playmat Ganador +Trofeo"
+        "description": "x2 Caja Carbonita Secrets of Power + Sable laser Yoda Black Series + Artabrian Playmat Ganador +Trofeo"
       },
       {
         "standing": "2º Puesto",
-        "description": "x1 Caja Carbonita 'Set en curso' + Deck Pod Official Gamegenic + Artabrian Playmat Finalista"
+        "description": "x1 Caja Carbonita 'Secrets of Power' + Deck Pod Official Gamegenic + Artabrian Playmat Finalista"
       },
       {
         "standing": "3º/4º Puesto",
@@ -315,7 +315,7 @@
         "description": "Material Promocional"
       }
     ],
-    "backgroundPath": "/assets/images/swu-event.jpg"
+    "backgroundPath": "/assets/images/swu/swu-bg-2.jpg"
   },
   {
     "id": "swu",
@@ -333,7 +333,7 @@
         "description": "30% recaudación en Ártabros"
       }
     ],
-    "backgroundPath": "/assets/images/swu-event.jpg"
+    "backgroundPath": "/assets/images/swu/swu-bg-1.jpg"
   },
   {
     "id": "swu",
@@ -367,6 +367,6 @@
         "description": "Material Promocional"
       }
     ],
-    "backgroundPath": "/assets/images/swu-event.jpg"
+    "backgroundPath": "/assets/images/swu/swu-bg-3.jpg"
   }
 ]

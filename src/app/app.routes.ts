@@ -1,3 +1,4 @@
+import { TournamentContact } from './models/tournament-contact.model';
 import { Routes } from '@angular/router';
 import { TournamentCardComponent } from './features/home/tournamentsSection/tournamentCard/tournamentCard';
 // Importa el tipo Routes, necesario para definir el array de rutas principal de Angular.
@@ -46,6 +47,22 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/home/locationSection/locationSection').then(
         (m) => m.LocationSectionComponent
+      ),
+  },
+
+  {
+    path: 'map',
+    title: 'map',
+    loadComponent: () =>
+      import('./components/map/mapComponent').then((m) => m.default),
+  },
+
+  {
+    path: 'contact',
+    title: 'contact',
+    loadComponent: () =>
+      import('./features/home/contact/contact').then(
+        (m) => m.ContactoComponent
       ),
   },
 

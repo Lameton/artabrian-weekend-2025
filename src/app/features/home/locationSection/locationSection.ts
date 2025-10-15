@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TournamentLocation } from '../../../models/tournament-location.model';
+import MapComponent from '../../../components/map/mapComponent';
 
 @Component({
   selector: 'location-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MapComponent],
   templateUrl: './locationSection.html',
 })
 export class LocationSectionComponent {

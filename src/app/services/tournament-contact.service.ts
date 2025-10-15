@@ -1,7 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TournamentContact } from '../models/tournament-contact.model';
+
+export interface Contacto {
+  title: string;
+  description: string;
+  addresses: { type: string; street: string; city: string; zip: string }[];
+  phones: { type: string; number: string }[];
+  emails: { type: string; address: string }[];
+  social: { instagram: string; x: string };
+  form: {
+    fields: { name: string; type: string; required: boolean }[];
+    cta: string;
+    privacy: string;
+  };
+}
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +24,7 @@ export class TournamentContactService {
 
   constructor(private http: HttpClient) {}
 
-  getContacts(): Observable<TournamentContact[]> {
-    return this.http.get<TournamentContact[]>(this.jsonUrl);
+  getContact(): Observable<Contacto> {
+    return this.http.get<Contacto>(this.jsonUrl);
   }
 }

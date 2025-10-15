@@ -73,4 +73,9 @@ export class NavbarComponent implements OnInit {
   trackById(index: number, item: any): string {
     return item.id;
   }
+
+  // Navegación al formulario de inscripción
+  onInscribeteClick() {
+    window.open('https://forms.gle/RgEFrzzyKXLRsDLm9', '_blank');
+  }
 }

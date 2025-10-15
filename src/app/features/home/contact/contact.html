@@ -1,0 +1,128 @@
+<section
+  class="min-h-screen flex flex-col lg:flex-row bg-gray-50 p-0 bg-[url('assets/images/AW_Fondo_01.jpg')]"
+>
+  <!-- COLUMNA IZQUIERDA: FAQs + FORM -->
+  <div class="flex-1 flex flex-col justify-start">
+    <!-- Wrapper para igualar ancho de FAQs y Form -->
+    <div class="w-full max-w-4xl p-10">
+      <!-- FAQs -->
+      <h2 class="text-4xl font-bold mb-6 text-gray-100">
+        Preguntas frecuentes
+      </h2>
+      <div class="flex flex-col gap-4 mb-10">
+        <div class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-semibold mb-1">¿Qué es Artabrian Nights?</h4>
+          <p class="text-gray-600 text-sm">
+            <span class="font-bold text-blue-600">Artabrian Nights</span> es una
+            asociación sin ánimo de lucro que nace con el objetivo de organizar
+            torneos de Magic: the Gathering en Ferrolterra. Además de este
+            evento, somos colaboradores dentro del circuito gallego de Modern y
+            Pauper.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-semibold mb-1">
+            ¿Qué son los <span class="text-blue-600 font-bold">Ártabros</span>?
+          </h4>
+          <p class="text-gray-600 text-sm">
+            La cantidad X de Ártabros que obtengáis en los torneos es bono
+            tienda que podréis canjear en cualquiera de las tiendas que tendrán
+            su stand durante el fin de semana.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-semibold mb-1">
+            ¿Ajustáis los premios según los participantes?
+          </h4>
+          <p class="text-gray-600 text-sm">
+            <span class="font-bold text-blue-600">NO.</span> Los premios
+            anunciados tanto en la web como en el cartel serán entregados sin
+            importar el número total de asistentes a cada torneo.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-semibold mb-1">
+            ¿Ofrecéis bocatas u otras opciones?
+          </h4>
+          <p class="text-gray-600 text-sm">
+            <span class="font-bold text-blue-600">Sí.</span> Durante el torneo
+            tendréis a vuestra disposición una cafetería donde podréis obtener
+            diferentes bebidas, café y bocatas (este último previa reserva). A
+            mayores podréis disfrutar de pulpo con cachelos durante el fin de
+            semana.
+          </p>
+        </div>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="bg-white p-8 rounded-lg shadow">
+        <h2 class="text-3xl font-bold mb-8 text-center">Contáctanos</h2>
+        <form class="space-y-6">
+          <div class="relative z-0 w-full group">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              class="block py-2.5 px-0 w-full text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+            />
+            <label
+              for="name"
+              class="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Nombre</label
+            >
+          </div>
+          <div class="relative z-0 w-full group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              class="block py-2.5 px-0 w-full text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+            />
+            <label
+              for="email"
+              class="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Email</label
+            >
+          </div>
+          <div class="relative z-0 w-full group">
+            <textarea
+              name="message"
+              id="message"
+              rows="4"
+              required
+              class="block py-2.5 px-0 w-full text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 resize-none appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+            ></textarea>
+            <label
+              for="message"
+              class="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Mensaje</label
+            >
+          </div>
+          <p class="text-xs text-gray-500 text-center">
+            Tus datos no serán compartidos
+          </p>
+          <button
+            type="submit"
+            class="w-full hover:bg-blue-800 bg-blue-600 transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400 text-white py-3 rounded-lg shadow transition-colors"
+          >
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUMNA DERECHA: IMAGEN A PANTALLA COMPLETA DE SU SECCIÓN -->
+  <div class="flex-1 flex items-stretch">
+    <img
+      src="assets/images/AW_Fondo_02.jpg"
+      alt="Artabrian Weekend 2025"
+      class="w-full h-full object-cover"
+    />
+  </div>
+</section>

@@ -1,4 +1,9 @@
 <artabrian-navbar />
 <hero-section id="home" [tcgId]="tcgId()"></hero-section>
 <tournament-section id="tournaments" [tcgId]="tcgId()"></tournament-section>
-<location-section [locationData]="locationJson"></location-section>
+<location-section
+  id="location"
+  [locationData]="locationJson"
+></location-section>
+<contact-section />
+<app-footer></app-footer>

@@ -1,13 +1,37 @@
 {
-  "organizers": ["Asociación Artabrian", "Comité MTG", "Liga SWU Galicia"],
-  "sponsors": ["Cartas & Dados", "GameMaster", "Playmat Co."],
-  "contact": {
-    "email": "info@artabriannights.com",
-    "phone": "+34 678 901 234",
-    "website": "https://www.artabriannights.com"
-  },
+  "title": "Contáctanos",
+  "description": "¿Tienes alguna pregunta? Completa el formulario o utiliza nuestros canales de comunicación.",
+  "addresses": [
+    {
+      "type": "Oficina Central",
+      "street": "Calle Principal, 123",
+      "city": "Madrid",
+      "zip": "28080"
+    }
+  ],
+  "phones": [
+    {
+      "type": "Atención al cliente",
+      "number": "+34 600 123 456"
+    }
+  ],
+  "emails": [
+    {
+      "type": "Soporte",
+      "address": "soporte@ejemplo.com"
+    }
+  ],
   "social": {
     "instagram": "https://instagram.com/artabriannights",
     "x": "https://x.com/artabriannights"
+  },
+  "form": {
+    "fields": [
+      { "name": "Nombre", "type": "text", "required": true },
+      { "name": "Email", "type": "email", "required": true },
+      { "name": "Mensaje", "type": "textarea", "required": true }
+    ],
+    "cta": "Enviar mensaje",
+    "privacy": "Tus datos no serán compartidos"
   }
 }

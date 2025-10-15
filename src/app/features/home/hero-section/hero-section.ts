@@ -72,7 +72,7 @@ export class HeroSection {
 
   // Navegación al formulario de inscripción
   onInscribeteClick() {
-    this.router.navigate(['/inscripcion']);
+    window.open('https://forms.gle/RgEFrzzyKXLRsDLm9', '_blank');
   }
 
   // Signals para modal y zoom
