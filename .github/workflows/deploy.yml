@@ -33,10 +33,10 @@ jobs:
         run: |
           npm run build -- --configuration production --base-href "/artabrian-weekend-2025/"
 
-      - name: Upload production build as artifact 📤
+      - name: Upload production build as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/artabrian-weekend-2025
+          path: dist/artabrian-weekend-2025/browser
 
   deploy:
     needs: build
@@ -46,6 +46,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
