@@ -8,7 +8,12 @@
     class="relative overflow-hidden flex flex-col justify-center items-center px-4 md:px-8 py-12"
   >
     <div
-      class="absolute inset-0 bg-[url('assets/images/noise/bg-noise-white.jpg')] bg-cover bg-center opacity-60"
+      class="absolute inset-0"
+      style="
+        background-image: url('/assets/images/noise/noise-white.svg');
+        background-repeat: repeat;
+        min-height: 100vh;
+      "
     ></div>
     <div
       class="relative z-10 max-w-xl text-center animate-fade-in-up space-y-4"
@@ -26,9 +31,8 @@
       </p>
       <p
         class="font-bold text-black/90 text-base md:text-2xl whitespace-pre-wrap"
-      >
-        {{ descriptionWithBreaks() }}
-      </p>
+        [innerHTML]="descriptionWithBreaks()"
+      ></p>
       <button
         aria-label="Inscríbete al torneo"
         (click)="onInscribeteClick()"

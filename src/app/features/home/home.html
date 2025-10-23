@@ -1,3 +1,10 @@
-<artabrian-navbar></artabrian-navbar>
-<hero-section></hero-section>
-<tournaments></tournaments>
+<navbar [pageSections]="pageSections"></navbar>
+<!-- Luego tus componentes: -->
+<hero-section id="home" [tcgId]="tcgId()"></hero-section>
+<tournament-section id="tournaments" [tcgId]="tcgId()"></tournament-section>
+<location-section
+  id="location"
+  [locationData]="locationJson"
+></location-section>
+<contact-section id="contact"></contact-section>
+<app-footer></app-footer>

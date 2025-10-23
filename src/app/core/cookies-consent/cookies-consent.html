@@ -1,0 +1,28 @@
+<div
+  *ngIf="visible"
+  class="fixed left-1/2 bottom-0 transform -translate-x-1/2 mb-6 z-50 w-[90vw] max-w-3xl bg-gray-900 text-white text-center p-4 shadow-lg flex flex-col items-center rounded-xl border border-gray-800 space-y-4"
+>
+  <div>
+    Esta web utiliza cookies propias para su correcto funcionamiento. Contiene
+    enlaces a sitios web de terceros con políticas de privacidad ajenas que
+    podrás aceptar o no cuando accedas a ellos. Al hacer clic en el botón
+    Aceptar, acepta el uso de estas tecnologías y el procesamiento de tus datos
+    para estos propósitos.
+  </div>
+  <div class="flex flex-row justify-center space-x-4">
+    <button
+      type="button"
+      class="px-4 py-2 rounded bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium focus:outline-none"
+      (click)="aceptar()"
+    >
+      ACEPTAR
+    </button>
+    <button
+      type="button"
+      class="px-4 py-2 rounded bg-gray-600 hover:bg-gray-800 text-white text-sm font-medium focus:outline-none"
+      (click)="rechazar()"
+    >
+      RECHAZAR
+    </button>
+  </div>
+</div>

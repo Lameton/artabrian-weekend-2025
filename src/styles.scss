@@ -1,9 +1,25 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap");
+@import "leaflet/dist/leaflet.css";
+@import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 
 body,
 html {
   font-family: "Rubik", "ui-sans-serif", "system-ui", sans-serif;
+  background-image: url("/src/assets/images/noise/nnnoise.svg");
+}
+
+section {
+  background-image: url("/src/assets/images/noise/nnnoise.svg");
+}
+
+/* En tu styles.css o similar */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
 }
 
 @layer utilities {
@@ -21,4 +37,9 @@ html {
   .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
   }
+}
+
+.leaflet-map-container {
+  height: 400px;
+  width: 100%;
 }

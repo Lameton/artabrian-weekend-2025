@@ -1,5 +1,5 @@
 {
-  "backgroundPath": "/assets/images/location-background.jpg",
-  "adress": "Rúa de San Pedro 123, 15703 Santiago de Compostela, Galicia",
-  "geopath": "https://maps.google.com/?q=42.8806,-8.5457"
+  "backgroundPath": "/assets/images/location/location.jpg",
+  "adress": "San Pedro de Leixa 82, 15405 Ferrol, Galicia",
+  "geopath": "https://maps.app.goo.gl/2YgpBSwLQirCn7wo7"
 }

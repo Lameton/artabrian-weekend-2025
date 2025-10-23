@@ -2,11 +2,13 @@ import { Component, computed, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TournamentSplitService } from '../../../services/tournament-split.service';
+import { CookieConsentComponent } from '../../cookies-consent/cookies-consent';
 
 @Component({
   selector: 'split-landing',
   standalone: true,
   templateUrl: './split-landing.html',
+  imports: [CookieConsentComponent],
 })
 export class SplitLanding {
   private splitService = inject(TournamentSplitService);
@@ -26,8 +28,7 @@ export class SplitLanding {
     this.hoveredPanelIndex = null;
   }
 
-  goToTournament(split: { id: string; name: string /* otros campos */ }) {
-    // Navega a la página específica del torneo, puede ser ajustado a tu ruta real:
-    this.router.navigate(['/tournaments', split.id]);
+  goToTournament(split: { id: string; name: string }) {
+    this.router.navigate(['/home'], { queryParams: { tcgId: split.id } });
   }
 }

@@ -1,4 +1,6 @@
+import { TournamentContact } from './models/tournament-contact.model';
 import { Routes } from '@angular/router';
+import { TournamentCardComponent } from './features/home/tournamentsSection/tournamentCard/tournamentCard';
 // Importa el tipo Routes, necesario para definir el array de rutas principal de Angular.
 
 export const routes: Routes = [
@@ -34,8 +36,60 @@ export const routes: Routes = [
     path: 'tournaments',
     title: 'tournaments',
     loadComponent: () =>
-      import('./features/home/tournaments/tournaments').then(
-        (m) => m.Tournaments
+      import('./features/home/tournamentsSection/tournamentsSection').then(
+        (m) => m.TournamentSectionComponent
+      ),
+  },
+
+  {
+    path: 'location',
+    title: 'location',
+    loadComponent: () =>
+      import('./features/home/locationSection/locationSection').then(
+        (m) => m.LocationSectionComponent
+      ),
+  },
+
+  {
+    path: 'map',
+    title: 'map',
+    loadComponent: () =>
+      import('./components/map/mapComponent').then((m) => m.default),
+  },
+
+  {
+    path: 'contact',
+    title: 'contact',
+    loadComponent: () =>
+      import('./features/home/contact/contact').then(
+        (m) => m.ContactSectionComponent
+      ),
+  },
+
+  {
+    path: 'avisolegal',
+    title: 'avisolegal',
+    loadComponent: () =>
+      import('./core/aviso-legal/aviso-legal').then(
+        (m) => m.AvisoLegalComponent
+      ),
+  },
+
+  {
+    path: 'politicaprivacidad',
+    title: 'politicaprivacidad',
+    loadComponent: () =>
+      import('./core/politica-privacidad/politica-privacidad').then(
+        (m) => m.PoliticaPrivacidadComponent
+      ),
+  },
+
+  {
+    path: 'cookiesconsent',
+    title: 'cookies-consent',
+    loadComponent: () =>
+      import('./core/cookies-consent/cookies-consent').then(
+        (m) => m.CookieConsentComponent
       ),
   },
 
