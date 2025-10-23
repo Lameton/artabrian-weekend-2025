@@ -1,22 +1,22 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { NavbarComponent } from '../../core/header/header';
 import { HeroSection } from './hero-section/hero-section';
 import { ActivatedRoute } from '@angular/router';
 import { TournamentSectionComponent } from './tournamentsSection/tournamentsSection';
 import { LocationSectionComponent } from './locationSection/locationSection';
-import { ContactoComponent } from './contact/contact';
+import { ContactSectionComponent } from './contact/contact';
 import { FooterComponent } from '../../core/footer/footer';
+import { NavbarComponent } from '../../core/arrow/navbar';
 
 @Component({
   selector: 'home',
   standalone: true,
   imports: [
-    NavbarComponent,
     HeroSection,
     TournamentSectionComponent,
     LocationSectionComponent,
-    ContactoComponent,
     FooterComponent,
+    ContactSectionComponent,
+    NavbarComponent,
   ],
   templateUrl: './home.html',
 })

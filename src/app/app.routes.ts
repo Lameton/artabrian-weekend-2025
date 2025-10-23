@@ -62,7 +62,34 @@ export const routes: Routes = [
     title: 'contact',
     loadComponent: () =>
       import('./features/home/contact/contact').then(
-        (m) => m.ContactoComponent
+        (m) => m.ContactSectionComponent
+      ),
+  },
+
+  {
+    path: 'avisolegal',
+    title: 'avisolegal',
+    loadComponent: () =>
+      import('./core/aviso-legal/aviso-legal').then(
+        (m) => m.AvisoLegalComponent
+      ),
+  },
+
+  {
+    path: 'politicaprivacidad',
+    title: 'politicaprivacidad',
+    loadComponent: () =>
+      import('./core/politica-privacidad/politica-privacidad').then(
+        (m) => m.PoliticaPrivacidadComponent
+      ),
+  },
+
+  {
+    path: 'cookiesconsent',
+    title: 'cookies-consent',
+    loadComponent: () =>
+      import('./core/cookies-consent/cookies-consent').then(
+        (m) => m.CookieConsentComponent
       ),
   },
 

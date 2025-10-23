@@ -6,6 +6,20 @@
 body,
 html {
   font-family: "Rubik", "ui-sans-serif", "system-ui", sans-serif;
+  background-image: url("/src/assets/images/noise/nnnoise.svg");
+}
+
+section {
+  background-image: url("/src/assets/images/noise/nnnoise.svg");
+}
+
+/* En tu styles.css o similar */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
 }
 
 @layer utilities {

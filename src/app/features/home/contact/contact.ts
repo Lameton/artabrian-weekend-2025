@@ -1,41 +1,19 @@
-import { Component, OnInit, signal } from '@angular/core';
-import {
-  TournamentContactService,
-  Contacto,
-} from '../../../services/tournament-contact.service';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'contact-section',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './contact.html',
 })
-export class ContactoComponent implements OnInit {
-  contacto = signal<Contacto | null>(null);
-
-  constructor(private contactService: TournamentContactService) {}
-
-  ngOnInit(): void {
-    this.contactService.getContact().subscribe({
-      next: (data) => this.contacto.set(data),
-      error: (err) => {
-        console.error('Error cargando contacto', err);
-        this.contacto.set(null);
-      },
-    });
-  }
-
-  get addressCount() {
-    return this.contacto()?.addresses.length ?? 0;
-  }
-
-  get phoneCount() {
-    return this.contacto()?.phones.length ?? 0;
-  }
-
-  get emailCount() {
-    return this.contacto()?.emails.length ?? 0;
-  }
-
-  get fieldCount() {
-    return this.contacto()?.form.fields.length ?? 0;
+export class ContactSectionComponent {
+  // Esta función solo previene el submit si el formulario no es válido
+  onSubmit(event: Event) {
+    const form = event.target as HTMLFormElement;
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      alert('Por favor rellena todos los campos correctamente.');
+    }
   }
 }

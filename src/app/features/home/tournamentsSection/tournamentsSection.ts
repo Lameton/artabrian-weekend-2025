@@ -35,5 +35,17 @@ export class TournamentSectionComponent {
   );
 
   selectedDay = signal<'viernes' | 'sábado' | 'domingo'>('viernes');
-  selectedType = signal<'main' | 'parallel'>;
+
+  // Computed para las columnas dinámicas de sábado
+  sabadoGridCols = computed(() =>
+    this.tcgId === 'swu'
+      ? 'grid-cols-1 md:grid-cols-2'
+      : 'grid-cols-1 md:grid-cols-4'
+  );
+
+  domingoGridCols = computed(() =>
+    this.tcgId === 'swu'
+      ? 'grid-cols-1 md:grid-cols-2'
+      : 'grid-cols-1 md:grid-cols-3'
+  );
 }

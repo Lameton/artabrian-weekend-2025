@@ -1,40 +1,27 @@
 <footer class="bg-gray-900 text-white">
   <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+    class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 grid md:grid-cols-4 gap-8"
   >
     <div>
       <a href="/" aria-label="Inicio" class="flex items-center mb-4">
         <img
           src="../../../assets/logos/artabrian-weekend-2025.svg"
           alt="Logo"
-          class="h-16 sm:h-20 mr-2"
+          class="h-20 sm:h-24 mr-2"
         />
       </a>
     </div>
-    <div>
-      <h3 class="font-semibold mb-2 text-lg">Secciones</h3>
-      <ul class="space-y-2 text-sm sm:text-base">
-        <li><a href="#Inicio" class="hover:underline block">Inicio</a></li>
-        <li><a href="#Torneos" class="hover:underline block">Torneos</a></li>
-        <li>
-          <a href="#localizacion" class="hover:underline block">Localización</a>
-        </li>
-        <li>
-          <a href="#preguntas" class="hover:underline block"
-            >Preguntas frecuentes</a
-          >
-        </li>
-        <li><a href="#contact" class="hover:underline block">Contacto</a></li>
-      </ul>
-    </div>
+    <div></div>
     <div>
       <h3 class="font-semibold mb-2 text-lg">Legal</h3>
       <ul class="space-y-2 text-sm sm:text-base">
         <li>
-          <a href="/aviso-legal" class="hover:underline block">Aviso legal</a>
+          <a href="/avisolegal" class="hover:underline block"> Aviso legal</a>
         </li>
         <li>
-          <a href="/privacidad" class="hover:underline block">Privacidad</a>
+          <a href="/politicaprivacidad" class="hover:underline block"
+            >Privacidad</a
+          >
         </li>
         <li><a href="/cookies" class="hover:underline block">Cookies</a></li>
       </ul>
@@ -45,30 +32,86 @@
         <li>
           <a
             href="mailto:artabriannights@gmail.com"
-            class="hover:underline block"
+            class="hover:underline block mb-4"
             >artabriannights@gmail.com</a
           >
         </li>
-        <li class="flex space-x-4 mt-3">
+        <!-- Iconos RRSS, tamaño y estilo responsive -->
+        <div class="flex items-center space-x-4">
+          <!-- Icono X -->
           <a
-            href="https://twitter.com"
-            aria-label="Twitter"
-            class="hover:underline text-sm sm:text-base"
-            >Twitter</a
+            href="https://x.com/artabriannights"
+            target="_blank"
+            aria-label="X"
+            class="group rounded-lg w-6 h-6 md:w-10 md:h-10 flex items-center justify-center transition-colors bg-white hover:bg-blue-600"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 120 120"
+              fill="currentColor"
+              class="w-6 md:w-7 h-6 md:h-7 transition-colors text-black group-hover:text-white"
+            >
+              <path
+                d="M93.55 15H110L71.6 59.1L116 105H82.95L55.05 74.11L23.1 105H6L46.41 58.78L4 15h34.32L60.73 43.06z"
+              />
+            </svg>
+          </a>
+          <!-- Icono Instagram -->
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/Artabrian_Nights/"
+            target="_blank"
             aria-label="Instagram"
-            class="hover:underline text-sm sm:text-base"
-            >Instagram</a
+            class="group rounded-lg w-6 h-6 md:w-10 md:h-10 flex items-center justify-center transition-colors bg-white hover:bg-blue-600"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-7 md:w-8 h-7 md:h-8 transition-colors text-black group-hover:text-white"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="20"
+                height="20"
+                rx="5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="5.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <circle cx="17" cy="7" r="1.3" fill="currentColor" />
+            </svg>
+          </a>
+          <!-- Icono Media Luna más marcada -->
           <a
-            href="https://facebook.com"
-            aria-label="Facebook"
-            class="hover:underline text-sm sm:text-base"
-            >Facebook</a
+            href="https://artabriannights.github.io/"
+            target="_blank"
+            aria-label="Media luna"
+            class="group rounded-lg w-6 h-6 md:w-10 md:h-10 flex items-center justify-center transition-colors bg-white hover:bg-blue-600"
           >
-        </li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              class="w-7 md:w-8 h-7 md:h-8 transition-colors text-black group-hover:text-white"
+            >
+              <path
+                d="M21 12c0 5-4 9-9 9a9 9 0 0 1 0-18c.4 0 .8 0 1.2.1A7 7 0 0 0 21 12z"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </a>
+        </div>
       </ul>
     </div>
   </div>
