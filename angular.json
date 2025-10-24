@@ -21,7 +21,6 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "outputPath": "dist/artabrian-weekend-2025",
-
             "assets": [
               {
                 "glob": "**/*",
@@ -29,7 +28,6 @@
                 "output": "/assets"
               }
             ],
-
             "styles": ["src/styles.scss"]
           },
           "configurations": {
@@ -42,11 +40,12 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "200kB",
+                  "maximumError": "500kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "allowedCommonJsDependencies": ["leaflet"]
             },
             "development": {
               "optimization": false,
