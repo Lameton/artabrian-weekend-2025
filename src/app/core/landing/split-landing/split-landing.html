@@ -4,9 +4,9 @@
   style="font-family: 'Rubik', sans-serif"
 >
   <!-- Header responsive -->
-  <div class="absolute top-2 w-full z-30">
+  <div class="absolute md:top-10 sm:top-6 w-full z-30">
     <!-- Desktop / Tablet: logo izquierda, RRSS derecha -->
-    <div class="hidden sm:flex items-center justify-between px-[5vw] h-[75px]">
+    <div class="hidden sm:flex items-center justify-between px-[5vw] h-[70px]">
       <!-- Logotipo evento, tamaño responsive -->
       <div class="flex-shrink-0" style="align-self: flex-start">
         <img
@@ -22,7 +22,7 @@
           href="https://x.com/artabriannights"
           target="_blank"
           aria-label="X"
-          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-black"
+          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@
           href="https://www.instagram.com/Artabrian_Nights/"
           target="_blank"
           aria-label="Instagram"
-          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-black"
+          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@
           href="https://artabriannights.github.io/"
           target="_blank"
           aria-label="Media luna"
-          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-black"
+          class="group rounded-lg w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors bg-white hover:bg-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -106,10 +106,18 @@
   <!-- Fondo spliteado solo visible en pantallas md y superiores -->
   <div class="absolute inset-0 flex hidden md:flex">
     <div
-      class="flex-1 bg-[url(./assets/images/noise/bg-noise-black.jpg)] bg-cover bg-center"
+      class="flex-1"
+      style="
+        background-image: url('/assets/images/noise/noise-black.svg');
+        background-repeat: repeat;
+      "
     ></div>
     <div
-      class="flex-1 bg-[url(./assets/images/noise/bg-noise-white.jpg)] bg-cover bg-center"
+      class="flex-1"
+      style="
+        background-image: url('/assets/images/noise/noise-black.svg');
+        background-repeat: repeat;
+      "
     ></div>
   </div>
 
@@ -118,7 +126,7 @@
     class="absolute inset-0 flex items-center justify-center z-10 shadow-lg h-full"
   >
     <div
-      class="flex flex-col md:flex-row w-full h-full md:max-w-[90vw] md:max-h-[80vh] md:rounded-md md:overflow-visible lg:overflow-hidden lg:aspect-[16/9] shadow-lg"
+      class="flex flex-col md:flex-row w-full h-full md:max-w-[90vw] md:max-h-[70vh] md:rounded-md md:overflow-visible lg:overflow-hidden lg:aspect-[16/9] shadow-lg"
     >
       @for (split of splits(); track split.id) {
       <div

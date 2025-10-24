@@ -5,34 +5,38 @@
     min-height: 100vh;
   "
 >
-  <div class="mx-auto px-8 pt-16">
-    <h1
-      class="text-3xl md:text-4xl lg:text-5xl text-gray-100 font-extrabold mb-4 leading-snug"
+  <!-- Encabezado y navbar limitados siempre -->
+  <div class="mx-auto px-4 md:px-8 pt-12 md:pt-16 max-w-screen-xl">
+    <h2
+      class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white/95 mb-4 leading-tight"
     >
-      Nuestros Torneos
-    </h1>
+      Preguntas frecuentes
+    </h2>
+    <div class="h-1 w-16 md:w-20 bg-amber-400 rounded-full"></div>
     <p
-      class="text-base max-w-6xl md:text-lg lg:text-xl text-gray-300 mb-8 leading-normal"
+      class="text-base italic max-w-6xl md:text-lg lg:text-xl text-gray-300 mb-8 mt-8 leading-normal"
     >
       Aquí encontrarás nuestros eventos, con detalles de horarios, premios y
       reglas específicas de cada uno de ellos.
     </p>
-    <!-- Menú de días: tabs horizontal simple y scrollable para móvil -->
     <nav
       role="tablist"
       aria-label="Seleccione día de torneo"
-      class="flex mx-auto py-4 gap-4 border-b-2 border-gray-300"
+      class="flex mx-auto py-4 gap-4 border-b-2 border-gray-300 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
     >
       <button
         role="tab"
-        class="whitespace-nowrap rounded-md px-4 py-1 font-semibold text-xs sm:text-sm md:text-base lg:text-base transition-all duration-300 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 border-b-4 hover:bg-blue-600 hover:text-white"
+        class="whitespace-nowrap rounded-md px-3 py-1 font-semibold text-xs sm:text-sm md:text-base lg:text-base transition-all duration-300 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 border-b-4"
         [class.text-gray-300]="selectedDay() !== 'viernes'"
         [class.text-black]="selectedDay() === 'viernes'"
-        [class.bg-gradient-to-r]="selectedDay() === 'viernes'"
-        [class.from-blue-400]="selectedDay() === 'viernes'"
-        [class.to-blue-600]="selectedDay() === 'viernes'"
-        [class.border-blue-800]="selectedDay() === 'viernes'"
+        [class.bg-amber-400]="selectedDay() === 'viernes'"
+        [class.border-amber-200]="selectedDay() === 'viernes'"
         [class.border-transparent]="selectedDay() !== 'viernes'"
+        [ngClass]="
+          selectedDay() !== 'viernes'
+            ? 'hover:bg-amber-400 hover:text-white'
+            : ''
+        "
         [attr.aria-selected]="selectedDay() === 'viernes'"
         (click)="selectedDay.set('viernes')"
         id="tab-viernes"
@@ -41,17 +45,19 @@
       >
         VIERNES 14
       </button>
-
       <button
         role="tab"
-        class="whitespace-nowrap rounded-md px-3 py-1 font-semibold text-xs sm:text-sm md:text-base lg:text-base transition-all duration-300 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 border-b-4 hover:bg-blue-600 hover:text-white"
+        class="whitespace-nowrap rounded-md px-3 py-1 font-semibold text-xs sm:text-sm md:text-base lg:text-base transition-all duration-300 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 border-b-4"
         [class.text-gray-300]="selectedDay() !== 'sábado'"
         [class.text-black]="selectedDay() === 'sábado'"
-        [class.bg-gradient-to-r]="selectedDay() === 'sábado'"
-        [class.from-blue-400]="selectedDay() === 'sábado'"
-        [class.to-blue-600]="selectedDay() === 'sábado'"
-        [class.border-blue-800]="selectedDay() === 'sábado'"
+        [class.bg-amber-400]="selectedDay() === 'sábado'"
+        [class.border-amber-200]="selectedDay() === 'sábado'"
         [class.border-transparent]="selectedDay() !== 'sábado'"
+        [ngClass]="
+          selectedDay() !== 'sábado'
+            ? 'hover:bg-amber-400 hover:text-white'
+            : ''
+        "
         [attr.aria-selected]="selectedDay() === 'sábado'"
         (click)="selectedDay.set('sábado')"
         id="tab-sabado"
@@ -60,17 +66,19 @@
       >
         SÁBADO 15
       </button>
-
       <button
         role="tab"
-        class="whitespace-nowrap rounded-md px-3 py-1 font-semibold text-xs sm:text-sm md:text-base lg:text-base transition-all duration-300 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 border-b-4 hover:bg-blue-600 hover:text-white"
+        class="whitespace-nowrap rounded-md px-3 py-1 font-semibold text-xs sm:text-sm md:text-base lg:text-base transition-all duration-300 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 border-b-4"
         [class.text-gray-300]="selectedDay() !== 'domingo'"
         [class.text-black]="selectedDay() === 'domingo'"
-        [class.bg-gradient-to-r]="selectedDay() === 'domingo'"
-        [class.from-blue-400]="selectedDay() === 'domingo'"
-        [class.to-blue-600]="selectedDay() === 'domingo'"
-        [class.border-blue-800]="selectedDay() === 'domingo'"
+        [class.bg-amber-400]="selectedDay() === 'domingo'"
+        [class.border-amber-200]="selectedDay() === 'domingo'"
         [class.border-transparent]="selectedDay() !== 'domingo'"
+        [ngClass]="
+          selectedDay() !== 'domingo'
+            ? 'hover:bg-amber-400 hover:text-white'
+            : ''
+        "
         [attr.aria-selected]="selectedDay() === 'domingo'"
         (click)="selectedDay.set('domingo')"
         id="tab-domingo"
@@ -80,37 +88,43 @@
         DOMINGO 16
       </button>
     </nav>
+  </div>
 
+  <!-- Contenedor grid dinamico con excepción para ancho -->
+  <div
+    [ngClass]="
+      isSabadoMtg4Eventos() || isDomingoMtgLarge()
+        ? 'w-full px-4 md:px-8 pb-16'
+        : 'mx-auto px-4 md:px-8 pb-16 max-w-screen-xl'
+    "
+  >
     <!-- Panel día Viernes -->
     <section
       role="tabpanel"
       [attr.aria-labelledby]="'tab-viernes'"
       id="tabpanel-viernes"
       *ngIf="selectedDay() === 'viernes'"
-      class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 py-8 px-4 min-h-[80vh]"
+      class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 py-8 px-4 min-h-[65vh]"
     >
       <tournament-card
         *ngFor="let event of viernesEvents()"
         [tournament]="event"
-        class="transition-all duration-200 rounded-3xl w-full min-h-[360px] flex flex-col"
+        class="transition-all duration-200 rounded-3xl w-full flex flex-col"
       ></tournament-card>
     </section>
 
-    <!-- Panel día Sábado con columnas dinámicas -->
+    <!-- Panel día Sábado -->
     <section
       role="tabpanel"
       [attr.aria-labelledby]="'tab-sabado'"
       id="tabpanel-sabado"
       *ngIf="selectedDay() === 'sábado'"
-      [class]="
-        'mx-auto grid grid-cols-1 gap-12 py-8 px-4 min-h-[65vh] ' +
-        sabadoGridCols()
-      "
+      [class]="'mx-auto grid gap-16 py-8 min-h-[65vh] ' + sabadoGridCols()"
     >
       <tournament-card
         *ngFor="let event of sabadoEvents()"
         [tournament]="event"
-        class="transition-all duration-200 rounded-3xl w-full min-h-[360px] flex flex-col"
+        class="transition-all duration-200 rounded-3xl w-full flex flex-col"
       ></tournament-card>
     </section>
 
@@ -121,14 +135,13 @@
       id="tabpanel-domingo"
       *ngIf="selectedDay() === 'domingo'"
       [class]="
-        'mx-auto grid grid-cols-1 gap-12 py-8 px-4 min-h-[65vh] ' +
-        domingoGridCols()
+        'mx-auto grid gap-12 py-8 px-4 min-h-[65vh] ' + domingoGridCols()
       "
     >
       <tournament-card
         *ngFor="let event of domingoEvents()"
         [tournament]="event"
-        class="transition-all duration-200 rounded-3xl w-full min-h-[360px] flex flex-col"
+        class="transition-all duration-200 rounded-3xl w-full flex flex-col"
       ></tournament-card>
     </section>
   </div>

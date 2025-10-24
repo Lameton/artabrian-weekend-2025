@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../header/header';
 import { FooterComponent } from '../footer/footer';
+import { NavbarComponent } from '../navbar/navbar';
 
 @Component({
   selector: 'aviso-legal',
   standalone: true,
-  imports: [NavbarComponent, NavbarComponent, FooterComponent],
+  imports: [FooterComponent, NavbarComponent],
   templateUrl: './aviso-legal.html',
 })
 export class AvisoLegalComponent {}

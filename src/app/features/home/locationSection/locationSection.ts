@@ -6,6 +6,7 @@ import {
   AfterViewInit,
   OnChanges,
   SimpleChanges,
+  HostListener,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TournamentLocation } from '../../../models/tournament-location.model';
@@ -24,25 +25,27 @@ export class LocationSectionComponent implements AfterViewInit, OnChanges {
   galleryContainer!: ElementRef<HTMLDivElement>;
 
   imagePaths: string[] = [
-    '/assets/images/Event/02-Image-event.jpg',
-    '/assets/images/Event/03-Image-event.jpg',
-    '/assets/images/Event/04-Image-event.jpg',
-    '/assets/images/Event/05-Image-event.jpg',
-    '/assets/images/Event/06-Image-event.jpg',
-    '/assets/images/Event/07-Image-event.jpg',
-    '/assets/images/Event/08-Image-event.jpg',
-    '/assets/images/Event/09-Image-event.jpg',
-    '/assets/images/Event/10-Image-event.jpg',
-    '/assets/images/Event/11-Image-event.jpg',
-    '/assets/images/Event/12-Image-event.jpg',
-    '/assets/images/Event/13-Image-event.jpg',
-    '/assets/images/Event/14-Image-event.jpg',
+    '/assets/images/event/02-Image-event.jpg',
+    '/assets/images/event/03-Image-event.jpg',
+    '/assets/images/event/04-Image-event.jpg',
+    '/assets/images/event/05-Image-event.jpg',
+    '/assets/images/event/06-Image-event.jpg',
+    '/assets/images/event/07-Image-event.jpg',
+    '/assets/images/event/08-Image-event.jpg',
+    '/assets/images/event/09-Image-event.jpg',
+    '/assets/images/event/10-Image-event.jpg',
+    '/assets/images/event/11-Image-event.jpg',
+    '/assets/images/event/12-Image-event.jpg',
+    '/assets/images/event/13-Image-event.jpg',
+    '/assets/images/event/14-Image-event.jpg',
   ];
 
   currentIndex = 0;
+  imageTransitioning = false;
+  fullscreenMode = false;
 
   ngAfterViewInit() {
-    // No es necesario ocultar scrollbars con JS, mejor CSS
+    // Inicialización si es necesaria
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -52,15 +55,25 @@ export class LocationSectionComponent implements AfterViewInit, OnChanges {
     }
   }
 
+  // Navegación con animación de transición
   goPrev() {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.imagePaths.length) % this.imagePaths.length;
-    this.scrollToImage(this.currentIndex);
+    this.imageTransitioning = true;
+    setTimeout(() => {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.imagePaths.length) %
+        this.imagePaths.length;
+      this.scrollToImage(this.currentIndex);
+      this.imageTransitioning = false;
+    }, 200);
   }
 
   goNext() {
-    this.currentIndex = (this.currentIndex + 1) % this.imagePaths.length;
-    this.scrollToImage(this.currentIndex);
+    this.imageTransitioning = true;
+    setTimeout(() => {
+      this.currentIndex = (this.currentIndex + 1) % this.imagePaths.length;
+      this.scrollToImage(this.currentIndex);
+      this.imageTransitioning = false;
+    }, 200);
   }
 
   scrollToImage(index: number) {
@@ -74,6 +87,30 @@ export class LocationSectionComponent implements AfterViewInit, OnChanges {
     }
   }
 
+  // Fullscreen mode
+  openFullscreen() {
+    this.fullscreenMode = true;
+  }
+
+  closeFullscreen() {
+    this.fullscreenMode = false;
+  }
+
+  // Navegación por teclado
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboard(event: KeyboardEvent) {
+    if (event.key === 'ArrowLeft') {
+      this.goPrev();
+    }
+    if (event.key === 'ArrowRight') {
+      this.goNext();
+    }
+    if (event.key === 'Escape') {
+      this.closeFullscreen();
+    }
+  }
+
+  // Getters existentes
   get backgroundPath(): string {
     return this.locationData?.backgroundPath ?? '';
   }

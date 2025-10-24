@@ -9,7 +9,7 @@ export const routes: Routes = [
   // ========================
   {
     path: '', // URL raíz ("/")
-    title: 'Inicio',
+    title: 'Portada',
     loadComponent: () =>
       import('./core/landing/split-landing/split-landing').then(
         (m) => m.SplitLanding

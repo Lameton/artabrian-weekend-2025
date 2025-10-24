@@ -12,6 +12,7 @@ import 'leaflet-defaulticon-compatibility';
   selector: 'app-map',
   standalone: true,
   templateUrl: './mapComponent.html',
+  styleUrls: ['../../../styles.scss'], // Añade esta línea
 })
 export default class MapComponent implements AfterViewInit, OnDestroy {
   private map?: leaflet.Map;
@@ -26,15 +27,15 @@ export default class MapComponent implements AfterViewInit, OnDestroy {
     this.map = leaflet.map(this.mapElement.nativeElement, {
       center: [this.location.lat, this.location.lng],
       zoom: 16,
-      scrollWheelZoom: true,
+      scrollWheelZoom: false,
       zoomControl: true,
-      attributionControl: false, // Desactiva el control de atribución
+      attributionControl: false,
     });
 
     // Add OpenStreetMap tiles without attribution
     leaflet
       .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '', // No mostrar atribución
+        attribution: '',
       })
       .addTo(this.map);
 
@@ -44,6 +45,11 @@ export default class MapComponent implements AfterViewInit, OnDestroy {
       .addTo(this.map)
       .bindPopup('<b>Pazo do Monte, Ferrol</b>')
       .openPopup();
+
+    // Fuerza que el mapa se ajuste correctamente al contenedor
+    setTimeout(() => {
+      this.map?.invalidateSize();
+    }, 100);
   }
 
   ngOnDestroy(): void {

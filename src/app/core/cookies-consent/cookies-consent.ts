@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'app-cookie-consent',
   templateUrl: './cookies-consent.html',
   standalone: true,
-  imports: [CommonModule], // No se importa CommonModule aquí, lo harás desde app.module o el módulo padre.
+  imports: [CommonModule],
 })
 export class CookieConsentComponent {
   visible = false;

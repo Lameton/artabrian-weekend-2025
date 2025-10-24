@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'sponsors',
@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './sponsors.html',
 })
 export class SponsorsComponent {
-  principalSponsors = [
+  @Input() principalSponsors: { name: string; logo: string }[] = [
     { name: 'Sponsor 1', logo: '/assets/images/sponsors/logo-ferrol.png' },
     { name: 'Sponsor 2', logo: '/assets/images/sponsors/logo-cardmarket.png' },
   ];
-  secondarySponsors = [
+  @Input() secondarySponsors: { name: string; logo: string }[] = [
     {
       name: 'Sponsor 1',
       logo: '/assets/images/sponsors/logo-random-player.png',

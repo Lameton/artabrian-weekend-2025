@@ -5,7 +5,7 @@ import { TournamentSectionComponent } from './tournamentsSection/tournamentsSect
 import { LocationSectionComponent } from './locationSection/locationSection';
 import { ContactSectionComponent } from './contact/contact';
 import { FooterComponent } from '../../core/footer/footer';
-import { NavbarComponent } from '../../core/arrow/navbar';
+import { NavbarComponent } from '../../core/navbar/navbar';
 
 @Component({
   selector: 'home',

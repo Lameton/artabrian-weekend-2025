@@ -1,0 +1,37 @@
+<nav
+  class="hidden md:flex items-center bg-black/95 py-3 sticky top-0 z-30 border-b-3 border-amber-200"
+>
+  <!-- Zona izquierda, ancho fijo -->
+
+  <div
+    class="flex-shrink-0 min-w-[220px] text-gray-200 font-bold text-left px-8"
+  >
+    <a
+      href="/src/app/core/landing/split-landing/split-landing.html"
+      class="transition-all duration-300 hover:italic hover:text-blue-600 hover:scale-120 cursor-pointer"
+      >Artabrian Weekend 2025</a
+    >
+  </div>
+
+  <!-- Zona central, crece y se centra -->
+
+  <ul class="flex-1 flex justify-center space-x-4 text-gray-300">
+    <li *ngFor="let section of pageSections">
+      <button
+        (click)="scrollToSection(section.id)"
+        [class.text-amber-200]="activeSection() === section.id"
+        class="font-semibold hover:text-amber-200 focus:outline-none rounded px-2 py-1 transition-colors cursor-pointer"
+        type="button"
+      >
+        {{ section.title }}
+      </button>
+    </li>
+  </ul>
+
+  <!-- Zona derecha, ancho fijo igual que la izquierda -->
+
+  <div class="flex-shrink-0 min-w-[220px] text-gray-200 text-right px-8">
+    <strong class="text-amber-200">Email : </strong>
+    <i class="font-semibold">artabriannights@gmail.com</i>
+  </div>
+</nav>

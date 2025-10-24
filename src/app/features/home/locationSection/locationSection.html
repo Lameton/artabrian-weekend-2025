@@ -1,20 +1,294 @@
-<div
+<section
   role="banner"
-  class="grid grid-cols-1 md:grid-cols-2 min-h-screen font-sans bg-neutral-100 select-none z-20 max-h-[1080px] overflow-hidden"
+  class="w-full min-h-screen font-sans bg-neutral-100 select-none"
   style="font-family: 'Rubik', sans-serif"
 >
-  <!-- Galería scroll horizontal con controles -->
+  <!-- Mapa superior - ancho completo -->
+  <div class="w-full relative z-10">
+    <app-map></app-map>
+  </div>
+
+  <!-- Sección split inferior: galería + información -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+    <!-- Columna izquierda: Galería interactiva (ajustada para imágenes verticales) -->
+    <div
+      class="relative bg-black min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden"
+      style="
+        background-image: url('/assets/images/noise/noise-black.svg');
+        background-repeat: repeat;
+      "
+    >
+      <!-- Imagen principal con transición (optimizada para formato vertical) -->
+      <div
+        class="relative w-full h-full flex items-center justify-center p-4 md:p-8"
+      >
+        <img
+          [src]="imagePaths[currentIndex]"
+          alt="Imagen del evento"
+          [class.opacity-0]="imageTransitioning"
+          class="max-w-[85%] md:max-w-[70%] max-h-[75vh] object-contain rounded-lg shadow-2xl transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
+          loading="lazy"
+          (click)="openFullscreen()"
+        />
+      </div>
+
+      <!-- Controles de navegación -->
+      <button
+        (click)="goPrev()"
+        class="absolute left-4 z-20 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full p-3 md:p-4 shadow-2xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-amber-400"
+        aria-label="Imagen anterior"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 md:h-8 md:w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+
+      <button
+        (click)="goNext()"
+        class="absolute right-4 z-20 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full p-3 md:p-4 shadow-2xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-amber-400"
+        aria-label="Imagen siguiente"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 md:h-8 md:w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Columna derecha: Información textual -->
+    <!-- Columna derecha: Información textual optimizada -->
+    <div
+      *ngIf="locationData"
+      class="flex flex-col justify-between p-8 md:p-12 lg:p-16 xl:p-20 relative bg-black min-h-[60vh] md:min-h-[80vh]"
+      style="
+        background-image: url('/assets/images/noise/noise-black.svg');
+        background-repeat: repeat;
+      "
+    >
+      <!-- Header section -->
+      <div class="space-y-4 mb-8">
+        <h1
+          class="text-white/95 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight"
+        >
+          Localización
+        </h1>
+
+        <div class="h-1 w-20 bg-amber-400 rounded-full"></div>
+      </div>
+
+      <!-- Content section -->
+      <div class="w-full text-left space-y-8 flex-grow">
+        <!-- Venue name -->
+        <div class="space-y-3">
+          <h2 class="text-amber-300 text-2xl md:text-3xl lg:text-4xl font-bold">
+            Pazo do Monte
+          </h2>
+
+          <p
+            class="text-white/80 text-base md:text-lg font-medium flex items-start gap-2"
+          >
+            <svg
+              class="w-5 h-5 mt-1 text-amber-400 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <span>{{ adress }}</span>
+          </p>
+        </div>
+
+        <!-- Description -->
+        <div class="space-y-4 p-4 bg-white/5 rounded-lg border border-white/10">
+          <p class="text-white/85 text-base md:text-lg leading-relaxed">
+            El acceso al Pazo do Monte en Ferrol es sencillo y cómodo en coche,
+            con un
+            <strong class="text-amber-300"
+              >aparcamiento privado y amplio</strong
+            >
+            para más de 50 vehículos. El recinto está próximo a núcleos urbanos
+            y bien señalizado, lo que facilita el acceso desde cualquier punto
+            de la ciudad y alrededores.
+          </p>
+        </div>
+
+        <!-- Directions -->
+        <div class="space-y-4">
+          <h3
+            class="text-white/90 text-xl md:text-2xl font-semibold flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-amber-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+              />
+            </svg>
+            Cómo llegar
+          </h3>
+
+          <ol class="space-y-4 text-white/85 text-base md:text-lg">
+            <li class="flex gap-3">
+              <span
+                class="flex-shrink-0 w-8 h-8 bg-amber-500/20 text-amber-300 rounded-full flex items-center justify-center font-bold text-sm"
+                >1</span
+              >
+              <span class="pt-1">
+                Autopista <strong class="text-amber-300">AP-9</strong> en
+                dirección Ferrol, saliendo en la
+                <strong class="text-amber-300">25-F</strong> hacia el
+                <strong class="text-amber-300"
+                  >Polígono industrial de Vilar do Colo</strong
+                >.
+              </span>
+            </li>
+            <li class="flex gap-3">
+              <span
+                class="flex-shrink-0 w-8 h-8 bg-amber-500/20 text-amber-300 rounded-full flex items-center justify-center font-bold text-sm"
+                >2</span
+              >
+              <span class="pt-1">
+                Desde esa salida, conecta con la vía rápida
+                <strong class="text-amber-300">VG-12</strong> y toma la salida
+                <strong class="text-amber-300">4</strong>, hacia San Pedro de
+                Leixa.
+              </span>
+            </li>
+            <li class="flex gap-3">
+              <span
+                class="flex-shrink-0 w-8 h-8 bg-amber-500/20 text-amber-300 rounded-full flex items-center justify-center font-bold text-sm"
+                >3</span
+              >
+              <span class="pt-1">
+                Dirígete a la dirección exacta:
+                <strong class="text-amber-300"
+                  >San Pedro de Leixa 82, 15405, Ferrol.</strong
+                >
+              </span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="mt-auto pt-8">
+        <a
+          href="https://maps.app.goo.gl/8Peteri8S8t1mD118"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Como llegar al recinto"
+          class="group flex items-center justify-center gap-3 w-full px-6 py-4 text-center text-base md:text-lg font-semibold rounded-lg shadow-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400"
+        >
+          <svg
+            class="w-6 h-6 transition-transform group-hover:rotate-12"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+            />
+          </svg>
+          <span>Abrir en Google Maps</span>
+          <svg
+            class="w-5 h-5 transition-transform group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen overlay (ajustado para imágenes verticales) -->
   <div
-    class="hidden md:flex relative items-center justify-center max-h-[1080px]"
+    *ngIf="fullscreenMode"
+    class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+    (click)="closeFullscreen()"
   >
-    <!-- Botón anterior -->
     <button
-      (click)="goPrev()"
-      class="absolute left-4 z-20 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      aria-label="Imagen anterior"
+      (click)="closeFullscreen()"
+      class="absolute top-4 right-4 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white transition-all"
+      aria-label="Cerrar vista completa"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <img
+      [src]="imagePaths[currentIndex]"
+      alt="Imagen ampliada"
+      class="max-w-[70vw] max-h-[90vh] object-contain rounded-lg"
+      (click)="$event.stopPropagation()"
+    />
+
+    <!-- Controles en fullscreen -->
+    <button
+      (click)="goPrev(); $event.stopPropagation()"
+      class="absolute left-4 bg-amber-500 hover:bg-amber-600 text-white rounded-full p-4 transition-all"
+    >
+      <svg
         class="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
@@ -29,33 +303,11 @@
       </svg>
     </button>
 
-    <!-- Contenedor galería con scroll horizontal y scrollbar oculta -->
-    <div
-      #galleryContainer
-      class="flex overflow-x-auto space-x-2 w-full h-full max-h-[1080px] snap-x snap-mandatory scrollbar-hide"
-      tabindex="0"
-      aria-label="[translate:Galería de imágenes del evento]"
-    >
-      <ng-container *ngFor="let imgPath of imagePaths; let i = index">
-        <img
-          [src]="imgPath"
-          alt="[translate:Imagen del evento]"
-          class="object-cover transition-transform duration-300 w-full h-full snap-center flex-shrink-0 rounded-2xl"
-          [class.opacity-50]="i !== currentIndex"
-          [class.ring-4]="i === currentIndex"
-          loading="lazy"
-        />
-      </ng-container>
-    </div>
-
-    <!-- Botón siguiente -->
     <button
-      (click)="goNext()"
-      class="absolute right-4 z-20 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      aria-label="Imagen siguiente"
+      (click)="goNext(); $event.stopPropagation()"
+      class="absolute right-4 bg-amber-500 hover:bg-amber-600 text-white rounded-full p-4 transition-all"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         class="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
@@ -70,68 +322,4 @@
       </svg>
     </button>
   </div>
-
-  <!-- Columna de mapa y descripción -->
-  <div *ngIf="locationData" class="flex flex-col relative">
-    <div class="relative z-10">
-      <app-map></app-map>
-    </div>
-    <div
-      class="flex flex-col p-8 md:p-16 relative z-10"
-      style="
-        background-image: url('/assets/images/noise/noise-white.svg');
-        background-repeat: repeat;
-        min-height: 100vh;
-      "
-    >
-      <h1
-        class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug"
-      >
-        Localización
-      </h1>
-      <div class="w-full text-left space-y-4">
-        <h2 class="text-3xl font-bold text-black">Pazo do Monte</h2>
-        <p class="text-lg text-black font-semibold break-words">
-          {{ adress }}
-        </p>
-        <p class="text-black text-base">
-          El acceso al Pazo do Monte en Ferrol es sencillo y cómodo en coche,
-          con un aparcamiento privado y amplio para más de 50 vehículos. El
-          recinto está próximo a núcleos urbanos y bien señalizado, lo que
-          facilita el acceso desde cualquier punto de la ciudad y alrededores.
-          Se recomienda tomar la siguiente ruta:
-        </p>
-        <ul class="list-disc pl-5 text-black">
-          <li>
-            ◉ Autopista <strong class="text-blue-600">AP-9</strong> en dirección
-            Ferrol, saliendo en la
-            <strong class="text-blue-600">25-F</strong> hacia el
-            <strong class="text-blue-600"
-              >Polígono industrial de Vilar do Colo</strong
-            >.
-          </li>
-          <li>
-            ◉ Desde esa salida, conecta con la vía rápida
-            <strong class="text-blue-600">VG-12</strong> y toma la salida
-            <strong class="text-blue-600">4</strong>, hacia San Pedro de Leixa.
-          </li>
-          <li>
-            ◉ Dirígete a la dirección exacta:
-            <strong class="text-blue-600"
-              >San Pedro de Leixa 82, 15405, Ferrol.</strong
-            >
-          </li>
-        </ul>
-      </div>
-      <a
-        href="https://maps.app.goo.gl/8Peteri8S8t1mD118"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="[translate:Inscríbete al torneo]"
-        class="block w-full max-w-xs mx-auto mt-6 mb-12 px-4 py-2 text-center text-base font-semibold rounded shadow-lg text-white hover:bg-blue-800 bg-blue-600 transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-400 sm:max-w-sm sm:px-6 sm:py-3 sm:text-lg md:max-w-md md:px-8 md:py-4 md:text-xl"
-      >
-        Google Maps
-      </a>
-    </div>
-  </div>
-</div>
+</section>
