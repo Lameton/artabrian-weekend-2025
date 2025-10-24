@@ -1,5 +1,5 @@
 <nav
-  class="hidden md:flex items-center bg-black/95 py-3 sticky top-0 z-30 border-b-3 border-amber-200"
+  class="hidden md:flex items-center bg-black py-3 sticky top-0 z-30 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent"
 >
   <!-- Zona izquierda, ancho fijo -->
 
@@ -15,11 +15,11 @@
 
   <!-- Zona central, crece y se centra -->
 
-  <ul class="flex-1 flex justify-center space-x-4 text-gray-300">
+  <ul class="flex-1 flex justify-center space-x-4 text-gray-100">
     <li *ngFor="let section of pageSections">
       <button
         (click)="scrollToSection(section.id)"
-        [class.text-amber-200]="activeSection() === section.id"
+        [class.text-amber-400]="activeSection() === section.id"
         class="font-semibold hover:text-amber-200 focus:outline-none rounded px-2 py-1 transition-colors cursor-pointer"
         type="button"
       >

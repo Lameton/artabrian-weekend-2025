@@ -1,6 +1,7 @@
 import { TournamentContact } from './models/tournament-contact.model';
 import { Routes } from '@angular/router';
 import { TournamentCardComponent } from './features/home/tournamentsSection/tournamentCard/tournamentCard';
+import { NotFoundComponent } from './core/404/not-found';
 // Importa el tipo Routes, necesario para definir el array de rutas principal de Angular.
 
 export const routes: Routes = [
@@ -95,6 +96,6 @@ export const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: '', // Redirige a la Home si la URL no coincide con ninguna ruta
+    component: NotFoundComponent, // Redirige a la Home si la URL no coincide con ninguna ruta
   },
 ];

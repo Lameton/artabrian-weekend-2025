@@ -1,0 +1,138 @@
+<navbar />
+<section
+  class="relative w-full min-h-screen font-sans select-none flex items-center justify-center"
+  style="
+    background-image: url('/assets/images/noise/noise-black.svg');
+    background-repeat: repeat;
+    font-family: 'Rubik', sans-serif;
+  "
+>
+  <div
+    class="max-w-4xl mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16 text-center"
+  >
+    <!-- Número 404 grande y llamativo -->
+    <div class="mb-8 md:mb-12">
+      <h1
+        class="text-8xl md:text-9xl lg:text-[12rem] font-extrabold text-amber-400 leading-none mb-6 animate-pulse"
+      >
+        404
+      </h1>
+      <div
+        class="h-1 w-32 md:w-40 bg-amber-400 rounded-full mx-auto mb-8"
+      ></div>
+    </div>
+
+    <!-- Título descriptivo -->
+    <div class="space-y-6 mb-8">
+      <h2
+        class="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight"
+      >
+        ¡Vaya! Página no encontrada
+      </h2>
+      <p
+        class="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto"
+      >
+        La página que estás buscando no existe o ha sido movida a otra
+        ubicación. Puede que hayas escrito mal la dirección o que el enlace esté
+        obsoleto.
+      </p>
+
+      <!-- Contador de redirección automática -->
+      <div
+        *ngIf="redirectCountdown > 0"
+        class="mt-6 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg"
+      >
+        <p class="text-white/90 text-sm md:text-base">
+          Serás redirigido al inicio en
+          <strong class="text-amber-400 text-lg">{{
+            redirectCountdown
+          }}</strong>
+          segundos
+        </p>
+        <button
+          (click)="cancelRedirect()"
+          class="mt-2 text-sm text-gray-400 hover:text-white underline underline-offset-2 transition-colors"
+        >
+          Cancelar redirección automática
+        </button>
+      </div>
+    </div>
+
+    <!-- Iconos decorativos -->
+    <div class="mb-12 flex justify-center gap-4">
+      <svg
+        class="w-16 h-16 md:w-20 md:h-20 text-amber-400/30"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <svg
+        class="w-16 h-16 md:w-20 md:h-20 text-amber-400/30"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    </div>
+
+    <!-- Botones de acción -->
+    <div
+      class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
+    >
+      <button
+        (click)="redirectToHome()"
+        class="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base md:text-lg font-semibold rounded-lg shadow-xl text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 transition-all transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-400 w-full sm:w-auto"
+      >
+        <svg
+          class="w-5 h-5 transition-transform group-hover:-translate-x-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        <span>Volver al inicio</span>
+      </button>
+
+      <a
+        href="mailto:artabriannights@gmail.com"
+        class="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base md:text-lg font-semibold rounded-lg shadow-xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/40 w-full sm:w-auto"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
+        </svg>
+        <span>Contactar</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-footer />
